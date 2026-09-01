@@ -1,0 +1,27 @@
+{
+  "version": 2,
+  "buildCommand": null,
+  "outputDirectory": ".",
+  "routes": [
+    {
+      "src": "/",
+      "dest": "/index.html"
+    },
+    {
+      "src": "/portfolio",
+      "dest": "/portfolio.html"
+    },
+    {
+      "src": "/experience",
+      "dest": "/experience.html"
+    },
+    {
+      "src": "/certificate",
+      "dest": "/certificate.html"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/$1"
+    }
+  ]
+}
