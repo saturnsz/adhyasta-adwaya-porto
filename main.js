@@ -101,97 +101,11 @@ function initHeroParallax() {
   }, { passive: true });
 }
 
-// 3D Model initialization
-function init3DModel() {
-  const container = document.getElementById('hero-3d-container');
-  // Check if container and THREE are available
-  if (!container || !window.THREE) return;
 
-  const scene = new THREE.Scene();
-  const camera = new THREE.PerspectiveCamera(45, container.clientWidth / container.clientHeight, 0.1, 1000);
-  camera.position.set(0, 6, 28);
-
-  const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
-  renderer.setSize(container.clientWidth, container.clientHeight);
-  renderer.setPixelRatio(window.devicePixelRatio);
-  container.appendChild(renderer.domElement);
-
-  const ambientLight = new THREE.AmbientLight(0xffffff, 0.7);
-  scene.add(ambientLight);
-
-  const directionalLight = new THREE.DirectionalLight(0xffffff, 0.8);
-  directionalLight.position.set(10, 20, 10);
-  scene.add(directionalLight);
-  
-  const directionalLight2 = new THREE.DirectionalLight(0xffffff, 0.3);
-  directionalLight2.position.set(-10, -10, -10);
-  scene.add(directionalLight2);
-
-  let controls;
-  if (window.THREE.OrbitControls) {
-    controls = new THREE.OrbitControls(camera, renderer.domElement);
-    controls.enableDamping = true;
-    controls.enableZoom = false; // Prevent page scroll hijack
-    controls.autoRotate = true;
-    controls.autoRotateSpeed = 1.5;
-  }
-
-  // Load Texture and OBJ
-  const textureLoader = new THREE.TextureLoader();
-  const texture = textureLoader.load('fh0gwod4bpj4-knight/knight/armor.jpg');
-
-  const objLoader = new THREE.OBJLoader();
-  let knightMesh;
-  objLoader.load('fh0gwod4bpj4-knight/knight/knight.obj', (object) => {
-    object.traverse((child) => {
-      if (child.isMesh) {
-        child.material = new THREE.MeshStandardMaterial({
-          map: texture,
-          roughness: 0.6,
-          metalness: 0.2
-        });
-      }
-    });
-
-    // Auto-scale to fit
-    const box = new THREE.Box3().setFromObject(object);
-    const center = box.getCenter(new THREE.Vector3());
-    const size = box.getSize(new THREE.Vector3());
-    const maxDim = Math.max(size.x, size.y, size.z);
-    
-    // Target size roughly 20 units
-    const scale = 20 / maxDim;
-    object.scale.set(scale, scale, scale);
-    
-    // Center object
-    object.position.sub(center.multiplyScalar(scale));
-    
-    // Adjust Y to anchor slightly lower
-    object.position.y -= 3;
-
-    knightMesh = object;
-    scene.add(object);
-  });
-
-  window.addEventListener('resize', () => {
-    if (!container) return;
-    camera.aspect = container.clientWidth / container.clientHeight;
-    camera.updateProjectionMatrix();
-    renderer.setSize(container.clientWidth, container.clientHeight);
-  });
-
-  function animate() {
-    requestAnimationFrame(animate);
-    if (controls) controls.update();
-    renderer.render(scene, camera);
-  }
-  animate();
-}
 
 document.addEventListener('DOMContentLoaded', () => {
   initReveal();
   setActiveNav();
   initLightbox();
   initHeroParallax();
-  init3DModel();
 });

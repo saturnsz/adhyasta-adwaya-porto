@@ -452,16 +452,18 @@ body::after {
   overflow: hidden;
 }
 
-#hero-3d-container {
+#hero-image {
   position: absolute;
-  top: 0;
-  right: 0;
-  width: 50%;
-  height: 100%;
+  top: 50%;
+  right: 8%;
+  transform: translateY(-50%);
+  width: 45%;
+  height: 75%;
   z-index: 1;
-  cursor: grab;
+  object-fit: contain;
+  object-position: center;
+  filter: drop-shadow(0 10px 15px rgba(0,0,0,0.5));
 }
-#hero-3d-container:active { cursor: grabbing; }
 
 .hero-bg-number {
   position: absolute;
@@ -1395,7 +1397,7 @@ body::after {
     gap: 48px;
   }
 
-  #hero-3d-container {
+  #hero-image {
     width: 100%;
     opacity: 0.4;
     pointer-events: none;
