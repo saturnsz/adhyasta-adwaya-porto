@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="">
 
 <head>
   <meta charset="UTF-8" />
@@ -9,245 +9,220 @@
     content="Project portfolio of Adhyasta Adwaya Al Karim — Machine Learning, Computer Vision, and AI deployment projects." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700;800&display=swap"
-    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
+
+  <style>
+    body { overflow: auto; background: #e8e8ed; }
+    [data-theme="dark"] body, body[data-theme="dark"] { background: #1c1c1e; }
+    .sp-container { padding: 12px clamp(14px,4vw,48px) 40px; margin-top: var(--menubar-h); }
+    .portfolio-item { display: grid; grid-template-columns: 220px 1fr; gap: 24px; padding: 28px 0; border-bottom: 0.5px solid rgba(0,0,0,0.07); align-items: start; }
+    [data-theme="dark"] .portfolio-item { border-bottom-color: rgba(255,255,255,0.06); }
+    .portfolio-item:last-child { border-bottom: none; }
+    .portfolio-item-num { font-size:11px; font-weight:600; letter-spacing:0.1em; color:var(--text-tertiary); margin-bottom:8px; }
+    .portfolio-item-img { border-radius:10px; overflow:hidden; aspect-ratio:16/9; background:rgba(0,0,0,0.04); }
+    .portfolio-item-img img { width:100%; height:100%; object-fit:cover; transition:transform 450ms cubic-bezier(0.32,0.72,0,1); }
+    .portfolio-item:hover .portfolio-item-img img { transform:scale(1.04); }
+    .portfolio-tags { display:flex; flex-wrap:wrap; gap:5px; margin-bottom:10px; }
+    .portfolio-tag { font-size:10px; font-weight:600; letter-spacing:0.05em; padding:3px 9px; border-radius:999px; background:rgba(10,132,255,0.08); border:0.5px solid rgba(10,132,255,0.2); color:var(--accent); }
+    .portfolio-item-title { font-size:17px; font-weight:700; color:var(--text-primary); letter-spacing:-0.02em; line-height:1.3; margin-bottom:8px; }
+    .portfolio-item-title a { color:inherit; text-decoration:none; transition:color 220ms; }
+    .portfolio-item-title a:hover { color:var(--accent); }
+    .portfolio-item-desc { font-size:13px; line-height:1.7; color:var(--text-secondary); margin-bottom:14px; }
+    .portfolio-item-link { display:inline-flex; align-items:center; gap:6px; font-size:13px; font-weight:500; color:var(--accent); text-decoration:none; transition:gap 220ms; }
+    .portfolio-item-link:hover { gap:10px; }
+    @media(max-width:640px){
+      .portfolio-item { grid-template-columns:1fr; }
+    }
+  </style>
 </head>
 
-<body class="portfolio-page">
+<body class="subpage portfolio-page">
 
-  <!-- NAV — Floating Pill -->
-  <nav class="navbar" id="navbar">
-    <div class="nav-pill">
-      <a href="index.html" class="nav-logo">Ayam Balado</a>
-      <ul class="nav-links">
-        <li><a href="index.html" class="nav-link">Beranda</a></li>
-        <li><a href="portfolio.html" class="nav-link active">Project</a></li>
-        <li><a href="experience.html" class="nav-link">Experience</a></li>
-        <li><a href="index.html#about" class="nav-link">About Me</a></li>
-        <li><a href="certificate.html" class="nav-link">Certificate</a></li>
-      </ul>
-      <button class="hamburger" id="hamburger" aria-label="Menu">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-    <div class="mobile-menu" id="mobileMenu">
-      <a href="index.html">Beranda</a>
-      <a href="portfolio.html">Project</a>
-      <a href="experience.html">Experience</a>
-      <a href="index.html#about">About Me</a>
-      <a href="certificate.html">Certificate</a>
-    </div>
-  </nav>
+  <!-- MENU BAR -->
+  <header class="sp-navbar">
+    <a href="index.html" class="sp-nav-back" aria-label="Back to Home">‹ Home</a>
+    <span class="sp-nav-title">Portfolio</span>
+    <button class="theme-btn" id="themeToggle" aria-label="Toggle dark mode" style="margin-left:auto;">🌙</button>
+    <div class="menubar-clock" id="menubarClock" style="font-size:12px;padding:0 8px;"></div>
+  </header>
 
-  <!-- PAGE HERO -->
-  <section class="page-hero">
-    <div class="container">
-      <div class="page-hero-label">Work</div>
-      <h1 class="page-hero-title">Portfolio</h1>
-      <p class="page-hero-sub">Flagship projects in Machine Learning, Computer Vision, and AI deployment.</p>
-    </div>
-  </section>
-
-  <!-- PROJECTS -->
-  <section class="section" style="background: var(--bg-light); padding-top: 0; border-top: none;">
-    <div class="container">
-      <div class="portfolio-grid">
-
-        <!-- Project 6 -->
-        <div class="portfolio-item reveal" id="project6">
-          <div class="portfolio-item-num">01</div>
-          <div class="portfolio-item-img">
-            <a href="https://project-ln-t-camp-global-superstore.vercel.app/" target="_blank" rel="noopener noreferrer">
-              <img src="project/gambar 6.png" alt="Global Superstore Urgent Order Classification" />
-            </a>
-          </div>
-          <div class="portfolio-item-info">
-            <div class="portfolio-tags">
-              <span class="portfolio-tag">Machine Learning</span>
-              <span class="portfolio-tag">Python</span>
-              <span class="portfolio-tag">REST API</span>
-            </div>
-            <h2 class="portfolio-item-title">
-              <a href="https://project-ln-t-camp-global-superstore.vercel.app/" target="_blank"
-                rel="noopener noreferrer">Intelligent Urgent Order Classification System</a>
-            </h2>
-            <div class="portfolio-item-desc">
-              <p>To address manual bottlenecks in logistics, I built an intelligent classification system that automates priority handling by analyzing the economic context of an order, such as the Shipping Cost Ratio. Leveraging an XGBoost Classifier, the decoupled architecture features a Python REST API on PythonAnywhere for real-time predictions, a Vanilla JS frontend on Vercel, and SQLite. Building this end-to-end pipeline provided invaluable lessons on the real-world ML product lifecycle.</p>
-            </div>
-            <a href="https://project-ln-t-camp-global-superstore.vercel.app/" target="_blank" rel="noopener noreferrer"
-              class="portfolio-item-link">
-              Visit Project <span class="arrow">↗</span>
-            </a>
-          </div>
-        </div>
-
-        <!-- Project 1 -->
-        <div class="portfolio-item reveal" id="project1">
-          <div class="portfolio-item-num">02</div>
-          <div class="portfolio-item-img">
-            <a href="https://taksir-rumah.vercel.app/" target="_blank" rel="noopener noreferrer">
-              <img src="project/gambar 1.png" alt="TaksirRumah Machine Learning Deployment" />
-            </a>
-          </div>
-          <div class="portfolio-item-info">
-            <div class="portfolio-tags">
-              <span class="portfolio-tag">Machine Learning</span>
-              <span class="portfolio-tag">Python</span>
-              <span class="portfolio-tag">Data Science</span>
-            </div>
-            <h2 class="portfolio-item-title">
-              <a href="https://taksir-rumah.vercel.app/" target="_blank" rel="noopener noreferrer">TaksirRumah (Machine
-                Learning Deployment)</a>
-            </h2>
-            <div class="portfolio-item-desc">
-              <p>Web design incorporating the deployment of a supervised machine learning system — a combination of web
-                design and intelligent system features.</p>
-            </div>
-            <a href="https://taksir-rumah.vercel.app/" target="_blank" rel="noopener noreferrer"
-              class="portfolio-item-link">
-              Visit Project <span class="arrow">↗</span>
-            </a>
-          </div>
-        </div>
-
-        <!-- Project 2 -->
-        <div class="portfolio-item reveal" id="project2">
-          <div class="portfolio-item-num">03</div>
-          <div class="portfolio-item-img">
-            <a href="https://damagecardetection-bgbmywze2q72kca7q4jtya.streamlit.app/" target="_blank"
-              rel="noopener noreferrer">
-              <img src="project/gambar 2.png" alt="Sistem Deteksi Kerusakan Bodi Mobil Hybrid CNN" />
-            </a>
-          </div>
-          <div class="portfolio-item-info">
-            <div class="portfolio-tags">
-              <span class="portfolio-tag">Computer Vision</span>
-              <span class="portfolio-tag">Deep Learning</span>
-              <span class="portfolio-tag">Python</span>
-            </div>
-            <h2 class="portfolio-item-title">
-              <a href="https://damagecardetection-bgbmywze2q72kca7q4jtya.streamlit.app/" target="_blank"
-                rel="noopener noreferrer">Sistem Deteksi Kerusakan Bodi Mobil Hybrid CNN &amp; Computer Vision Berbasis
-                CBAM</a>
-            </h2>
-            <div class="portfolio-item-desc">
-              <p>An intelligent system based on deep learning and computer vision — a hybrid system that automatically
-                detects damage to cars using CNN architecture with CBAM attention mechanism.</p>
-            </div>
-            <a href="https://damagecardetection-bgbmywze2q72kca7q4jtya.streamlit.app/" target="_blank"
-              rel="noopener noreferrer" class="portfolio-item-link">
-              Visit Project <span class="arrow">↗</span>
-            </a>
-          </div>
-        </div>
-
-        <!-- Project 3 -->
-        <div class="portfolio-item reveal" id="project3">
-          <div class="portfolio-item-num">04</div>
-          <div class="portfolio-item-img">
-            <a href="https://taksirrumah-sistemprediksiresiko.streamlit.app/" target="_blank" rel="noopener noreferrer">
-              <img src="project/gambar 3.png" alt="Sistem Prediksi Tingkat Resiko Membeli Rumah" />
-            </a>
-          </div>
-          <div class="portfolio-item-info">
-            <div class="portfolio-tags">
-              <span class="portfolio-tag">Machine Learning</span>
-              <span class="portfolio-tag">Python</span>
-              <span class="portfolio-tag">Data Science</span>
-            </div>
-            <h2 class="portfolio-item-title">
-              <a href="https://taksirrumah-sistemprediksiresiko.streamlit.app/" target="_blank"
-                rel="noopener noreferrer">Sistem Prediksi Tingkat Resiko Membeli Rumah</a>
-            </h2>
-            <div class="portfolio-item-desc">
-              <p>Developing a home-buying risk level prediction system using a Random Forest machine learning model. The
-                system helps users assess the risk associated with purchasing a property through mortgage financing.</p>
-            </div>
-            <a href="https://taksirrumah-sistemprediksiresiko.streamlit.app/" target="_blank" rel="noopener noreferrer"
-              class="portfolio-item-link">
-              Visit Project <span class="arrow">↗</span>
-            </a>
-          </div>
-        </div>
-
-        <!-- Project 4 -->
-        <div class="portfolio-item reveal" id="project4">
-          <div class="portfolio-item-num">05</div>
-          <div class="portfolio-item-img">
-            <a href="https://sistem-prediksi-harga-rumah-jogja.streamlit.app/" target="_blank"
-              rel="noopener noreferrer">
-              <img src="project/gambar 4.png" alt="Sistem Prediksi Nilai Harga Rumah" />
-            </a>
-          </div>
-          <div class="portfolio-item-info">
-            <div class="portfolio-tags">
-              <span class="portfolio-tag">Machine Learning</span>
-              <span class="portfolio-tag">Python</span>
-              <span class="portfolio-tag">Data Science</span>
-            </div>
-            <h2 class="portfolio-item-title">
-              <a href="https://sistem-prediksi-harga-rumah-jogja.streamlit.app/" target="_blank"
-                rel="noopener noreferrer">Sistem Prediksi Nilai Harga Rumah</a>
-            </h2>
-            <div class="portfolio-item-desc">
-              <p>Developing a house price prediction system in Yogyakarta using a machine learning model. The system
-                leverages historical property data to provide accurate price estimations for residential properties.</p>
-            </div>
-            <a href="https://sistem-prediksi-harga-rumah-jogja.streamlit.app/" target="_blank" rel="noopener noreferrer"
-              class="portfolio-item-link">
-              Visit Project <span class="arrow">↗</span>
-            </a>
-          </div>
-        </div>
-
-        <!-- Project 5 -->
-        <div class="portfolio-item reveal" id="project5">
-          <div class="portfolio-item-num">06</div>
-          <div class="portfolio-item-img">
-            <a href="https://sentimen-public-kasus-nakes-2026.vercel.app/" target="_blank" rel="noopener noreferrer">
-              <img src="project/gambar 5.png" alt="Web Analisis Sentimen Public X" />
-            </a>
-          </div>
-          <div class="portfolio-item-info">
-            <div class="portfolio-tags">
-              <span class="portfolio-tag">Machine Learning</span>
-              <span class="portfolio-tag">Python</span>
-              <span class="portfolio-tag">LLM</span>
-            </div>
-            <h2 class="portfolio-item-title">
-              <a href="https://sentimen-public-kasus-nakes-2026.vercel.app/" target="_blank"
-                rel="noopener noreferrer">Web Analisis Sentimen Public X</a>
-            </h2>
-            <div class="portfolio-item-desc">
-              <p>Developing a natural language processing system for sentiment analysis by scraping data from Twitter
-                (X) and analyzing it through comprehensive data visualization. The system provides insights into public
-                opinion trends.</p>
-            </div>
-            <a href="https://sentimen-public-kasus-nakes-2026.vercel.app/" target="_blank" rel="noopener noreferrer"
-              class="portfolio-item-link">
-              Visit Project <span class="arrow">↗</span>
-            </a>
-          </div>
-        </div>
-
+  <!-- WINDOW CHROME -->
+  <div style="padding: calc(var(--menubar-h) + 16px) clamp(14px,4vw,48px) 0;">
+    <div class="sp-window">
+      <div class="sp-window-bar">
+        <a href="index.html" aria-label="Close — back to home"><div class="sp-wc red"></div></a>
+        <div class="sp-wc yellow"></div>
+        <div class="sp-wc green"></div>
       </div>
-    </div>
-  </section>
 
-  <!-- FOOTER -->
-  <footer class="footer">
-    <div class="container footer-inner">
-      <span class="footer-logo">Ayam Balado</span>
-      <span style="color: var(--stone-light); font-size: 0.73rem;">© 2026 Adhyasta Adwaya Al Karim</span>
-      <div class="footer-links">
-        <a href="https://github.com/saturnsz" target="_blank">Github</a>
-        <a href="https://www.linkedin.com/in/adhyasta-adwaya-al-karim/" target="_blank">LinkedIn</a>
-        <a href="mailto:adhyastawaya4@gmail.com">Email</a>
+      <!-- PAGE HEADER -->
+      <div class="page-hero" style="padding:36px 36px 28px;">
+        <div class="page-hero-label">Work</div>
+        <h1 class="page-hero-title">Portfolio</h1>
+        <p class="page-hero-sub">Flagship projects in Machine Learning, Computer Vision, and AI deployment.</p>
       </div>
-    </div>
-  </footer>
+
+      <!-- PROJECTS -->
+      <div style="padding: 0 36px 36px;">
+        <div style="display:flex;flex-direction:column;gap:0;">
+
+          <div class="portfolio-item reveal" id="project6">
+            <div>
+              <div class="portfolio-item-num">01</div>
+              <div class="portfolio-item-img">
+                <a href="https://project-ln-t-camp-global-superstore.vercel.app/" target="_blank" rel="noopener">
+                  <img src="project/gambar 6.png" alt="Global Superstore Urgent Order Classification" loading="lazy" />
+                </a>
+              </div>
+            </div>
+            <div class="portfolio-item-info">
+              <div class="portfolio-tags">
+                <span class="portfolio-tag">Machine Learning</span>
+                <span class="portfolio-tag">Python</span>
+                <span class="portfolio-tag">REST API</span>
+              </div>
+              <h2 class="portfolio-item-title">
+                <a href="https://project-ln-t-camp-global-superstore.vercel.app/" target="_blank" rel="noopener">Intelligent Urgent Order Classification System</a>
+              </h2>
+              <div class="portfolio-item-desc">
+                <p>To address manual bottlenecks in logistics, I built an intelligent classification system that automates priority handling by analyzing the economic context of an order, such as the Shipping Cost Ratio. Leveraging an XGBoost Classifier, the decoupled architecture features a Python REST API on PythonAnywhere for real-time predictions, a Vanilla JS frontend on Vercel, and SQLite.</p>
+              </div>
+              <a href="https://project-ln-t-camp-global-superstore.vercel.app/" target="_blank" rel="noopener" class="portfolio-item-link">Visit Project <span>↗</span></a>
+            </div>
+          </div>
+
+          <div class="portfolio-item reveal" id="project1">
+            <div>
+              <div class="portfolio-item-num">02</div>
+              <div class="portfolio-item-img">
+                <a href="https://taksir-rumah.vercel.app/" target="_blank" rel="noopener">
+                  <img src="project/gambar 1.png" alt="TaksirRumah Machine Learning Deployment" loading="lazy" />
+                </a>
+              </div>
+            </div>
+            <div class="portfolio-item-info">
+              <div class="portfolio-tags">
+                <span class="portfolio-tag">Machine Learning</span>
+                <span class="portfolio-tag">Python</span>
+                <span class="portfolio-tag">Data Science</span>
+              </div>
+              <h2 class="portfolio-item-title">
+                <a href="https://taksir-rumah.vercel.app/" target="_blank" rel="noopener">TaksirRumah (Machine Learning Deployment)</a>
+              </h2>
+              <div class="portfolio-item-desc">
+                <p>Web design incorporating the deployment of a supervised machine learning system — a combination of web design and intelligent system features.</p>
+              </div>
+              <a href="https://taksir-rumah.vercel.app/" target="_blank" rel="noopener" class="portfolio-item-link">Visit Project <span>↗</span></a>
+            </div>
+          </div>
+
+          <div class="portfolio-item reveal" id="project2">
+            <div>
+              <div class="portfolio-item-num">03</div>
+              <div class="portfolio-item-img">
+                <a href="https://damagecardetection-bgbmywze2q72kca7q4jtya.streamlit.app/" target="_blank" rel="noopener">
+                  <img src="project/gambar 2.png" alt="Sistem Deteksi Kerusakan Bodi Mobil" loading="lazy" />
+                </a>
+              </div>
+            </div>
+            <div class="portfolio-item-info">
+              <div class="portfolio-tags">
+                <span class="portfolio-tag">Computer Vision</span>
+                <span class="portfolio-tag">Deep Learning</span>
+                <span class="portfolio-tag">Python</span>
+              </div>
+              <h2 class="portfolio-item-title">
+                <a href="https://damagecardetection-bgbmywze2q72kca7q4jtya.streamlit.app/" target="_blank" rel="noopener">Sistem Deteksi Kerusakan Bodi Mobil Hybrid CNN &amp; CBAM</a>
+              </h2>
+              <div class="portfolio-item-desc">
+                <p>An intelligent system based on deep learning and computer vision — a hybrid system that automatically detects damage to cars using CNN architecture with CBAM attention mechanism.</p>
+              </div>
+              <a href="https://damagecardetection-bgbmywze2q72kca7q4jtya.streamlit.app/" target="_blank" rel="noopener" class="portfolio-item-link">Visit Project <span>↗</span></a>
+            </div>
+          </div>
+
+          <div class="portfolio-item reveal" id="project3">
+            <div>
+              <div class="portfolio-item-num">04</div>
+              <div class="portfolio-item-img">
+                <a href="https://taksirrumah-sistemprediksiresiko.streamlit.app/" target="_blank" rel="noopener">
+                  <img src="project/gambar 3.png" alt="Sistem Prediksi Tingkat Resiko" loading="lazy" />
+                </a>
+              </div>
+            </div>
+            <div class="portfolio-item-info">
+              <div class="portfolio-tags">
+                <span class="portfolio-tag">Machine Learning</span>
+                <span class="portfolio-tag">Python</span>
+                <span class="portfolio-tag">Data Science</span>
+              </div>
+              <h2 class="portfolio-item-title">
+                <a href="https://taksirrumah-sistemprediksiresiko.streamlit.app/" target="_blank" rel="noopener">Sistem Prediksi Tingkat Resiko Membeli Rumah</a>
+              </h2>
+              <div class="portfolio-item-desc">
+                <p>Developing a home-buying risk level prediction system using a Random Forest machine learning model. The system helps users assess the risk associated with purchasing a property through mortgage financing.</p>
+              </div>
+              <a href="https://taksirrumah-sistemprediksiresiko.streamlit.app/" target="_blank" rel="noopener" class="portfolio-item-link">Visit Project <span>↗</span></a>
+            </div>
+          </div>
+
+          <div class="portfolio-item reveal" id="project4">
+            <div>
+              <div class="portfolio-item-num">05</div>
+              <div class="portfolio-item-img">
+                <a href="https://sistem-prediksi-harga-rumah-jogja.streamlit.app/" target="_blank" rel="noopener">
+                  <img src="project/gambar 4.png" alt="Sistem Prediksi Harga Rumah" loading="lazy" />
+                </a>
+              </div>
+            </div>
+            <div class="portfolio-item-info">
+              <div class="portfolio-tags">
+                <span class="portfolio-tag">Machine Learning</span>
+                <span class="portfolio-tag">Python</span>
+                <span class="portfolio-tag">Data Science</span>
+              </div>
+              <h2 class="portfolio-item-title">
+                <a href="https://sistem-prediksi-harga-rumah-jogja.streamlit.app/" target="_blank" rel="noopener">Sistem Prediksi Nilai Harga Rumah</a>
+              </h2>
+              <div class="portfolio-item-desc">
+                <p>Developing a house price prediction system in Yogyakarta using a machine learning model leveraging historical property data to provide accurate price estimations.</p>
+              </div>
+              <a href="https://sistem-prediksi-harga-rumah-jogja.streamlit.app/" target="_blank" rel="noopener" class="portfolio-item-link">Visit Project <span>↗</span></a>
+            </div>
+          </div>
+
+          <div class="portfolio-item reveal" id="project5">
+            <div>
+              <div class="portfolio-item-num">06</div>
+              <div class="portfolio-item-img">
+                <a href="https://sentimen-public-kasus-nakes-2026.vercel.app/" target="_blank" rel="noopener">
+                  <img src="project/gambar 5.png" alt="Web Analisis Sentimen Public X" loading="lazy" />
+                </a>
+              </div>
+            </div>
+            <div class="portfolio-item-info">
+              <div class="portfolio-tags">
+                <span class="portfolio-tag">Machine Learning</span>
+                <span class="portfolio-tag">Python</span>
+                <span class="portfolio-tag">LLM</span>
+              </div>
+              <h2 class="portfolio-item-title">
+                <a href="https://sentimen-public-kasus-nakes-2026.vercel.app/" target="_blank" rel="noopener">Web Analisis Sentimen Public X</a>
+              </h2>
+              <div class="portfolio-item-desc">
+                <p>Developing a natural language processing system for sentiment analysis by scraping data from Twitter (X) and analyzing it through comprehensive data visualization, providing insights into public opinion trends.</p>
+              </div>
+              <a href="https://sentimen-public-kasus-nakes-2026.vercel.app/" target="_blank" rel="noopener" class="portfolio-item-link">Visit Project <span>↗</span></a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div><!-- /sp-window -->
+  </div>
+
+  <div class="sp-footer">© 2026 Adhyasta Adwaya Al Karim</div>
 
   <script src="main.js"></script>
 </body>

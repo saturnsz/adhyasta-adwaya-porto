@@ -1,353 +1,449 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="">
 
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Adhyasta Adwaya Al Karim — Portfolio</title>
+  <title>Adhyasta Adwaya Al Karim Portfolio</title>
   <meta name="description"
     content="Portfolio of Adhyasta Adwaya Al Karim, Computer Science Student specializing in Machine Learning, Deep Learning, and Computer Vision." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700;800&display=swap"
-    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <!-- Phosphor Icons -->
+  <script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
+  <!-- Flaticon Uicons (rs = regular-straight) -->
+  <link rel="stylesheet"
+    href="https://cdn-uicons.flaticon.com/2.6.0/uicons-regular-straight/css/uicons-regular-straight.css">
   <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
 
-  <!-- NAV — Floating Pill -->
-  <nav class="navbar" id="navbar">
-    <div class="nav-pill">
-      <a href="index.html" class="nav-logo">Ayam Balado</a>
-      <ul class="nav-links">
-        <li><a href="index.html" class="nav-link active">Beranda</a></li>
-        <li><a href="portfolio.html" class="nav-link">Project</a></li>
-        <li><a href="experience.html" class="nav-link">Experience</a></li>
-        <li><a href="index.html#about" class="nav-link">About Me</a></li>
-        <li><a href="certificate.html" class="nav-link">Certificate</a></li>
-      </ul>
-      <button class="hamburger" id="hamburger" aria-label="Menu">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-    <div class="mobile-menu" id="mobileMenu">
-      <a href="index.html">Beranda</a>
-      <a href="portfolio.html">Project</a>
-      <a href="experience.html">Experience</a>
-      <a href="index.html#about">About Me</a>
-      <a href="certificate.html">Certificate</a>
-    </div>
-  </nav>
+  <!-- PAGE FADE OVERLAY -->
+  <div class="page-fade" id="pageFade"></div>
 
-  <!-- HERO -->
-  <style>
-    #home {
-      background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('M%20e%20l%20l%20o%20w.jpg') center/cover no-repeat;
-    }
+  <!-- DESKTOP SHELL -->
+  <div class="desktop" id="desktop">
 
-    #home .hero-bg-number {
-      color: rgba(255, 255, 255, 0.05);
-    }
+    <!-- WALLPAPER -->
+    <div class="desktop-wallpaper"
+      style="background-image:url('download%20(44).jpg');"></div>
 
-    #home .hero-badge {
-      background: rgba(255, 255, 255, 0.1);
-      color: #fff;
-      border-color: rgba(255, 255, 255, 0.3);
-    }
-
-    #home .hero-title {
-      color: #ffffff;
-    }
-
-    #home .name-accent {
-      color: #e0e0e0;
-      text-shadow: none;
-    }
-
-    #home .hero-sub {
-      color: #e0e0e0;
-    }
-
-    #home .hero-social-btn {
-      color: #ffffff;
-      border-color: rgba(255, 255, 255, 0.3);
-    }
-
-    #home .hero-social-btn:hover {
-      background: #ffffff;
-      color: #000000;
-      border-color: #ffffff;
-    }
-
-    #home .hero-social-btn.primary {
-      background: #ffffff;
-      color: #000000;
-      border-color: #ffffff;
-    }
-
-    #home .hero-social-btn.primary:hover {
-      background: #e0e0e0;
-      border-color: #e0e0e0;
-    }
-
-    #home .hero-scroll-indicator span {
-      color: #ffffff;
-    }
-
-    #home .scroll-line {
-      background: #ffffff;
-    }
-  </style>
-  <section class="hero" id="home">
-    <div class="hero-bg-number" aria-hidden="true">AI</div>
-    <div class="hero-content">
-      <div class="hero-tag-row">
-        <span class="hero-badge">Computer Science Student</span>
-        <span class="hero-badge">Yogyakarta University of Technology -</span>
-      </div>
-      <h1 class="hero-title">
-        Adhyasta<br />Adwaya<br /><span class="name-accent">Al Karim</span>
-      </h1>
-      <p class="hero-sub">
-        Intelligent Engineering System<br />
-        Machine Learning · Deep Learning · Computer Vision
-      </p>
-      <div class="hero-actions">
-        <a href="https://github.com/saturnsz" target="_blank" class="hero-social-btn primary" id="btn-github">Github</a>
-        <a href="https://www.linkedin.com/in/adhyasta-adwaya-al-karim/" target="_blank" class="hero-social-btn"
-          id="btn-linkedin">LinkedIn</a>
-        <a href="https://share.streamlit.io/user/saturnsz" target="_blank" class="hero-social-btn"
-          id="btn-streamlit">Streamlit</a>
-        <a href="mailto:adhyastawaya4@gmail.com" class="hero-social-btn" id="btn-email">Email</a>
-        <a href="https://drive.google.com/file/d/1x4vTiaind01HicdHdRgDZPOl_5cIesuj/view?usp=sharing" target="_blank"
-          class="hero-social-btn" id="btn-cv">CV ↗</a>
-      </div>
-    </div>
-    <div class="hero-scroll-indicator">
-      <span>Scroll</span>
-      <div class="scroll-line"></div>
-    </div>
-  </section>
-
-  <!-- ABOUT -->
-  <section class="section about-section reveal" id="about">
-    <div class="container">
-      <div class="section-index">01 — About</div>
-      <div class="about-grid">
-        <div class="about-text-col">
-          <div class="section-label">About Me</div>
-          <p class="about-text">
-            I am capable of building and developing systems based on Machine Learning, Deep Learning, and Computer
-            Vision. Driven by a strong interest in Artificial Intelligence, I possess end-to-end practical experience
-            ranging from data labeling, normalization, and visualization design to the creation of prediction,
-            classification, and detection models. Furthermore, I am skilled in AI deployment, transforming trained
-            models into intelligent features integrated directly into applications.
-          </p>
+    <!-- ── MENU BAR ── -->
+    <header class="menubar" role="banner">
+      <div class="menubar-left">
+        <!-- Apple Logo -->
+        <div class="menubar-apple" aria-label="Apple menu">
+          <svg viewBox="0 0 814 1000" aria-hidden="true">
+            <path
+              d="M788.1 340.9c-5.8 4.5-108.2 62.2-108.2 190.5 0 148.4 130.3 200.9 134.2 202.2-.6 3.2-20.7 71.9-68.7 141.9-42.8 61.6-87.5 123.1-155.5 123.1s-85.5-39.5-164-39.5c-76 0-103.7 40.8-165.9 40.8s-105-37.3-155.5-118.3c-48.1-74.1-70.5-155.8-70.5-234.5 0-174.1 115.7-265.5 229.2-265.5 62.4 0 114.3 40.8 153.4 40.8 37.2 0 95.7-42.8 166.7-42.8zm-506.1-198.2C236 87.4 253.4 32.5 253.4 0c0-1.9-.2-3.8-.5-5.7-43.8 6.3-96.5 30-127.9 64-28.5 30.8-54.2 79.4-54.2 131.1 0 1.9.2 3.8.5 5.7 3.8.3 7.7.5 11.5.5 42.7.1 93.6-23.1 119.3-53.8z" />
+          </svg>
         </div>
-        <div class="about-tech-col">
-          <div class="section-label">My Tech</div>
-          <div class="tech-grid">
-            <span class="tech-item">Python</span>
-            <span class="tech-item">Machine Learning</span>
-            <span class="tech-item">Deep Learning</span>
-            <span class="tech-item">Computer Vision</span>
-            <span class="tech-item">YOLO</span>
-            <span class="tech-item">TensorFlow</span>
-            <span class="tech-item">Scikit-learn</span>
-            <span class="tech-item">Streamlit</span>
-            <span class="tech-item">Data Science</span>
-            <span class="tech-item">LLM / Gemini</span>
-          </div>
+
+        <!-- App Name -->
+        <span class="menubar-appname">Adhyasta Adwaya</span>
+
+        <!-- Menus -->
+        <div class="menubar-menus" aria-hidden="true">
+          <span class="menubar-menu">File</span>
+          <span class="menubar-menu">Edit</span>
+          <span class="menubar-menu">View</span>
+          <span class="menubar-menu">Window</span>
+          <span class="menubar-menu">Help</span>
         </div>
       </div>
-    </div>
-  </section>
 
-  <!-- EXPERIENCE PREVIEW -->
-  <section class="section exp-preview-section reveal" id="experience-preview">
-    <div class="container">
-      <div class="section-index">02 — Experience</div>
-      <div class="exp-preview-content">
-        <div class="exp-preview-text">
-          <div class="section-label">Experience</div>
-          <h2>Building real-world impact through AI &amp; Computer Vision</h2>
-          <p>From competitive hackathons and bootcamps to community service and national research programs — each
-            experience shaping a stronger foundation in intelligent systems.</p>
-          <a href="experience.html" class="cta-link" id="view-experience-link">View All Experience <span
-              class="arrow">→</span></a>
+      <div class="menubar-right">
+        <!-- Wi-Fi -->
+        <div class="menubar-icon" aria-label="Wi-Fi">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path
+              d="M1 1l22 22M16.72 11.06A10.94 10.94 0 0 1 19 12.55M5 12.55a10.94 10.94 0 0 1 5.17-2.39M10.71 5.05A16 16 0 0 1 22.56 9M1.42 9a15.91 15.91 0 0 1 4.7-2.88M8.53 16.11a6 6 0 0 1 6.95 0M12 20h.01" />
+          </svg>
         </div>
-        <div class="exp-items-preview">
-          <div class="exp-preview-item">
-            <span class="exp-preview-num">01</span>
-            <div class="exp-preview-info">
-              <h3>Winner 1st Best Project Computer Vision</h3>
-              <span>Computer Vision Bootcamp HIMATIKA × CODING COLLECTIVE</span>
-            </div>
+        <!-- Battery -->
+        <div class="menubar-icon" aria-label="Battery">
+          <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="1" y="6" width="18" height="12" rx="2" />
+            <path d="M23 13v-2" />
+            <rect x="3" y="8" width="12" height="8" rx="1" />
+          </svg>
+        </div>
+        <!-- Search -->
+        <div class="menubar-icon" aria-label="Spotlight Search" id="menubarSearch">
+          <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8" />
+            <line x1="21" y1="21" x2="16.65" y2="16.65" />
+          </svg>
+        </div>
+        <!-- Control Center -->
+        <div class="menubar-icon" aria-label="Control Center">
+          <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+            <polyline points="9 22 9 12 15 12 15 22" />
+          </svg>
+        </div>
+        <!-- Theme Toggle -->
+        <button class="theme-btn" id="themeToggle" aria-label="Toggle dark mode">🌙</button>
+        <!-- Clock -->
+        <div class="menubar-clock" id="menubarClock" aria-live="polite">Sen 18 Okt 23.34</div>
+      </div>
+    </header>
+
+    <!-- ── DESKTOP AREA ── -->
+    <main class="desktop-area" id="desktopArea">
+
+      <!-- ═══ WINDOW: HERO / ABOUT ═══ -->
+      <div class="window" id="win-hero" style="width:520px; height:auto; top:60px; left:80px; z-index:10;" role="dialog"
+        aria-label="About Me" aria-modal="true">
+        <div class="window-titlebar" id="wb-hero">
+          <div class="window-controls">
+            <button class="wc-btn wc-close" id="wc-hero-close" aria-label="Close">
+              <svg viewBox="0 0 8 8">
+                <line x1="1" y1="1" x2="7" y2="7" stroke="rgba(0,0,0,0.5)" stroke-width="1.5" />
+                <line x1="7" y1="1" x2="1" y2="7" stroke="rgba(0,0,0,0.5)" stroke-width="1.5" />
+              </svg>
+            </button>
+            <button class="wc-btn wc-min" id="wc-hero-min" aria-label="Minimize">
+              <svg viewBox="0 0 8 8">
+                <line x1="1" y1="4" x2="7" y2="4" stroke="rgba(0,0,0,0.5)" stroke-width="1.5" />
+              </svg>
+            </button>
+            <button class="wc-btn wc-max" id="wc-hero-max" aria-label="Maximize">
+              <svg viewBox="0 0 8 8">
+                <path d="M1 5L5 1h2v2L3 7H1z" fill="rgba(0,0,0,0.5)" />
+              </svg>
+            </button>
           </div>
-          <div class="exp-preview-item">
-            <span class="exp-preview-num">02</span>
-            <div class="exp-preview-info">
-              <h3>Community Service Officer</h3>
-              <span>Jogja Coding House · Sep 2025 — Jan 2026</span>
+          <span class="window-title">About Me</span>
+        </div>
+        <div class="window-body">
+          <div class="hero-content">
+            <div class="hero-avatar-wrap">
+              <div class="hero-avatar-inner">A</div>
             </div>
-          </div>
-          <div class="exp-preview-item">
-            <span class="exp-preview-num">03</span>
-            <div class="exp-preview-info">
-              <h3>Hackathon Refactory × UGM 2026</h3>
-              <span>Large Language Model (LLM)</span>
+            <div>
+              <h1 class="hero-name">Adhyasta Adwaya<br>Al Karim</h1>
             </div>
-          </div>
-          <div class="exp-preview-item">
-            <span class="exp-preview-num">04</span>
-            <div class="exp-preview-info">
-              <h3>PKM-KC 2024 — 2026</h3>
-              <span>Computer Vision · BASys-School</span>
+            <span class="hero-title-tag">Machine Learning · Computer Vision · AI</span>
+            <p class="hero-bio">
+              Computer Science student at Universitas Teknologi Yogyakarta with end-to-end experience in Machine
+              Learning, Deep Learning, and AI deployment from data labeling to intelligent application integration.
+            </p>
+            <div class="hero-tech">
+              <span>Python</span><span>TensorFlow</span><span>YOLO</span>
+              <span>Scikit-learn</span><span>Streamlit</span><span>LLM / Gemini</span>
+              <span>Data Science</span><span>Computer Vision</span>
+            </div>
+            <div class="hero-actions">
+              <a href="https://github.com/saturnsz" target="_blank" rel="noopener" class="mac-btn primary"
+                id="btn-github">
+                <i class="ph ph-github-logo"></i> GitHub
+              </a>
+              <a href="https://www.linkedin.com/in/adhyasta-adwaya-al-karim/" target="_blank" rel="noopener"
+                class="mac-btn" id="btn-linkedin">
+                <i class="ph ph-linkedin-logo"></i> LinkedIn
+              </a>
+              <a href="mailto:adhyastawaya4@gmail.com" class="mac-btn" id="btn-email"><i class="ph ph-envelope"></i>
+                Email</a>
+              <a href="https://drive.google.com/file/d/1x4vTiaind01HicdHdRgDZPOl_5cIesuj/view?usp=sharing"
+                target="_blank" class="mac-btn" id="btn-cv"><i class="ph ph-file-text"></i> CV ↗</a>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
 
-  <!-- PORTFOLIO PREVIEW -->
-  <section class="section portfolio-preview-section reveal" id="portfolio-preview">
-    <div class="container">
-      <div class="section-index" style="color: var(--stone-light);">03 — Portfolio</div>
-      <div class="section-header">
-        <div class="section-label">Portfolio</div>
-        <h2 class="section-title" style="color: var(--white);">Flagship Projects</h2>
-      </div>
-      <div class="project-preview-grid">
-
-        <a href="https://taksir-rumah.vercel.app/" target="_blank" rel="noopener noreferrer" class="project-card"
-          id="preview-project1">
-          <div class="project-thumb">
-            <img src="project/gambar 1.png" alt="TaksirRumah" />
+      <!-- ═══ WINDOW: PORTFOLIO (FINDER STYLE) ═══ -->
+      <div class="window" id="win-portfolio"
+        style="width:720px; height:500px; top:55px; left:640px; z-index:9; display:none;" role="dialog"
+        aria-label="Portfolio" aria-modal="true">
+        <div class="window-titlebar" id="wb-portfolio">
+          <div class="window-controls">
+            <button class="wc-btn wc-close" id="wc-port-close" aria-label="Close">
+              <svg viewBox="0 0 8 8">
+                <line x1="1" y1="1" x2="7" y2="7" stroke="rgba(0,0,0,0.5)" stroke-width="1.5" />
+                <line x1="7" y1="1" x2="1" y2="7" stroke="rgba(0,0,0,0.5)" stroke-width="1.5" />
+              </svg>
+            </button>
+            <button class="wc-btn wc-min" id="wc-port-min" aria-label="Minimize">
+              <svg viewBox="0 0 8 8">
+                <line x1="1" y1="4" x2="7" y2="4" stroke="rgba(0,0,0,0.5)" stroke-width="1.5" />
+              </svg>
+            </button>
+            <button class="wc-btn wc-max" id="wc-port-max" aria-label="Maximize">
+              <svg viewBox="0 0 8 8">
+                <path d="M1 5L5 1h2v2L3 7H1z" fill="rgba(0,0,0,0.5)" />
+              </svg>
+            </button>
           </div>
-          <div class="project-info">
-            <h3 class="project-name">TaksirRumah (Deployment)</h3>
-            <p class="project-short"><strong>Business Problem</strong><br />Web design incorporating supervised ML
-              system to determine house risk &amp; price</p>
-            <p class="project-explain"><strong>Explanation</strong><br />An intelligent prediction system combining web
-              application deployment and Machine Learning features.</p>
+          <span class="window-title">Portfolio</span>
+        </div>
+        <div class="window-body">
+          <div class="finder-window">
+            <!-- Sidebar -->
+            <nav class="finder-sidebar" aria-label="Portfolio categories">
+              <div class="finder-sidebar-label">Kategori</div>
+              <div class="finder-sidebar-item active" data-filter="all" role="button" tabindex="0">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="3" y="3" width="7" height="7" />
+                  <rect x="14" y="3" width="7" height="7" />
+                  <rect x="14" y="14" width="7" height="7" />
+                  <rect x="3" y="14" width="7" height="7" />
+                </svg>
+                Semua
+              </div>
+              <div class="finder-sidebar-item" data-filter="ml" role="button" tabindex="0">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10" />
+                  <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" />
+                  <line x1="12" y1="17" x2="12.01" y2="17" />
+                </svg>
+                Machine Learning
+              </div>
+              <div class="finder-sidebar-item" data-filter="cv" role="button" tabindex="0">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                  <circle cx="12" cy="12" r="3" />
+                </svg>
+                Computer Vision
+              </div>
+              <div class="finder-sidebar-item" data-filter="nlp" role="button" tabindex="0">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+                </svg>
+                NLP / LLM
+              </div>
+              <div class="finder-sidebar-item" data-filter="web" role="button" tabindex="0">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10" />
+                  <line x1="2" y1="12" x2="22" y2="12" />
+                  <path
+                    d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+                </svg>
+                Web
+              </div>
+            </nav>
+            <!-- Main grid -->
+            <div class="finder-main" id="portfolio-grid-container">
+              <div class="project-grid" id="portfolio-grid">
+                <!-- Rendered by JS -->
+              </div>
+            </div>
           </div>
-        </a>
-
-        <a href="https://damagecardetection-bgbmywze2q72kca7q4jtya.streamlit.app/" target="_blank"
-          rel="noopener noreferrer" class="project-card" id="preview-project2">
-          <div class="project-thumb">
-            <img src="project/gambar 2.png" alt="Sistem Deteksi Kerusakan Bodi Mobil" />
-          </div>
-          <div class="project-info">
-            <h3 class="project-name">Sistem Deteksi Kerusakan Bodi Mobil</h3>
-            <p class="project-short"><strong>Business Problem</strong><br />Automating car body damage classification
-              for insurance &amp; inspection</p>
-            <p class="project-explain"><strong>Explanation</strong><br />An intelligent system using hybrid CNN
-              architecture with CBAM attention mechanism to automatically detect car damage.</p>
-          </div>
-        </a>
-
-        <a href="https://project-ln-t-camp-global-superstore.vercel.app/" target="_blank" rel="noopener noreferrer"
-          class="project-card" id="preview-project3">
-          <div class="project-thumb">
-            <img src="project/gambar 6.png" alt="Global Superstore Urgent Order Classification" />
-          </div>
-          <div class="project-info">
-            <h3 class="project-name">Intelligent Urgent Order Classification System</h3>
-            <p class="project-short"><strong>Business Problem</strong><br />Identifying priority orders manually creates
-              bottlenecks in logistics and warehouse management.</p>
-            <p class="project-explain"><strong>Explanation</strong><br />An intelligent system utilizing an XGBoost
-              Classifier to automate urgent order handling based on the economic context of an order.</p>
-          </div>
-        </a>
-
+        </div>
       </div>
-      <div class="section-cta">
-        <a href="portfolio.html" class="cta-link cta-link-light" id="view-all-projects">View All Projects <span
-            class="arrow">→</span></a>
+
+      <!-- ═══ WINDOW: EXPERIENCE (NOTES STYLE) ═══ -->
+      <div class="window" id="win-experience"
+        style="width:640px; height:480px; top:120px; left:380px; z-index:8; display:none;" role="dialog"
+        aria-label="Experience" aria-modal="true">
+        <div class="window-titlebar" id="wb-experience">
+          <div class="window-controls">
+            <button class="wc-btn wc-close" id="wc-exp-close" aria-label="Close">
+              <svg viewBox="0 0 8 8">
+                <line x1="1" y1="1" x2="7" y2="7" stroke="rgba(0,0,0,0.5)" stroke-width="1.5" />
+                <line x1="7" y1="1" x2="1" y2="7" stroke="rgba(0,0,0,0.5)" stroke-width="1.5" />
+              </svg>
+            </button>
+            <button class="wc-btn wc-min" id="wc-exp-min" aria-label="Minimize">
+              <svg viewBox="0 0 8 8">
+                <line x1="1" y1="4" x2="7" y2="4" stroke="rgba(0,0,0,0.5)" stroke-width="1.5" />
+              </svg>
+            </button>
+            <button class="wc-btn wc-max" id="wc-exp-max" aria-label="Maximize">
+              <svg viewBox="0 0 8 8">
+                <path d="M1 5L5 1h2v2L3 7H1z" fill="rgba(0,0,0,0.5)" />
+              </svg>
+            </button>
+          </div>
+          <span class="window-title">Experience</span>
+        </div>
+        <div class="window-body">
+          <div class="notes-window">
+            <nav class="notes-list" aria-label="Experience list">
+              <div class="notes-list-header">Experience</div>
+              <!-- Rendered by JS -->
+            </nav>
+            <div class="notes-detail" id="exp-detail">
+              <!-- Rendered by JS -->
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ═══ WINDOW: CERTIFICATE (PHOTOS STYLE) ═══ -->
+      <div class="window" id="win-certificate"
+        style="width:680px; height:480px; top:100px; left:200px; z-index:7; display:none;" role="dialog"
+        aria-label="Certificates" aria-modal="true">
+        <div class="window-titlebar" id="wb-certificate">
+          <div class="window-controls">
+            <button class="wc-btn wc-close" id="wc-cert-close" aria-label="Close">
+              <svg viewBox="0 0 8 8">
+                <line x1="1" y1="1" x2="7" y2="7" stroke="rgba(0,0,0,0.5)" stroke-width="1.5" />
+                <line x1="7" y1="1" x2="1" y2="7" stroke="rgba(0,0,0,0.5)" stroke-width="1.5" />
+              </svg>
+            </button>
+            <button class="wc-btn wc-min" id="wc-cert-min" aria-label="Minimize">
+              <svg viewBox="0 0 8 8">
+                <line x1="1" y1="4" x2="7" y2="4" stroke="rgba(0,0,0,0.5)" stroke-width="1.5" />
+              </svg>
+            </button>
+            <button class="wc-btn wc-max" id="wc-cert-max" aria-label="Maximize">
+              <svg viewBox="0 0 8 8">
+                <path d="M1 5L5 1h2v2L3 7H1z" fill="rgba(0,0,0,0.5)" />
+              </svg>
+            </button>
+          </div>
+          <span class="window-title">Certificates</span>
+        </div>
+        <div class="window-body">
+          <div class="photos-window">
+            <div class="photos-toolbar" role="toolbar" aria-label="Filter certificates">
+              <button class="photos-filter active" data-cert-filter="all">Semua</button>
+              <button class="photos-filter" data-cert-filter="kursus">Kursus</button>
+              <button class="photos-filter" data-cert-filter="lomba">Lomba</button>
+              <button class="photos-filter" data-cert-filter="organisasi">Organisasi</button>
+            </div>
+            <div class="cert-grid" id="cert-grid">
+              <!-- Rendered by JS -->
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </main><!-- /desktop-area -->
+
+    <!-- ── DYNAMIC ISLAND DOCK ── -->
+    <nav class="di-dock-wrap dock-wrap" aria-label="Dynamic Island Dock">
+      <div class="di-dock dock" id="dock">
+
+        <!-- Dynamic Island Live Status / Activity Capsule -->
+        <div class="di-island-status" id="diIslandStatus" title="System Activity">
+          <span class="di-live-indicator"></span>
+          <span class="di-status-text" id="diStatusText">Adhyasta OS</span>
+        </div>
+
+        <div class="di-sep dock-sep" aria-hidden="true"></div>
+
+        <!-- Apps group -->
+        <div class="di-icon-group" id="diMainGroup">
+
+          <div class="dock-item di-item active open" id="dock-home" data-window="win-hero" data-label="About Me"
+            role="button" tabindex="0" aria-label="About Me">
+            <div class="di-popup"><span class="di-popup-dot" style="color:#0a84ff"></span>About Me</div>
+            <div class="dock-item-icon di-icon" style="background: linear-gradient(135deg, #0a84ff, #0051d5);"><i
+                class="ph ph-house"></i></div>
+            <div class="dock-item-dot di-dot"></div>
+          </div>
+
+          <div class="dock-item di-item" id="dock-portfolio" data-window="win-portfolio" data-label="Portfolio"
+            role="button" tabindex="0" aria-label="Portfolio">
+            <div class="di-popup"><span class="di-popup-dot" style="color:#ff6b35"></span>Portfolio</div>
+            <div class="dock-item-icon di-icon" style="background: linear-gradient(135deg, #ff6b35, #e83e8c);"><i
+                class="ph ph-bag"></i></div>
+            <div class="dock-item-dot di-dot"></div>
+          </div>
+
+          <div class="dock-item di-item" id="dock-experience" data-window="win-experience" data-label="Experience"
+            role="button" tabindex="0" aria-label="Experience">
+            <div class="di-popup"><span class="di-popup-dot" style="color:#30d158"></span>Experience</div>
+            <div class="dock-item-icon di-icon" style="background: linear-gradient(135deg, #30d158, #108035);"><i
+                class="ph ph-code-block"></i></div>
+            <div class="dock-item-dot di-dot"></div>
+          </div>
+
+          <div class="dock-item di-item" id="dock-certificate" data-window="win-certificate" data-label="Certificates"
+            role="button" tabindex="0" aria-label="Certificates">
+            <div class="di-popup"><span class="di-popup-dot" style="color:#ffd60a"></span>Certificates</div>
+            <div class="dock-item-icon di-icon" style="background: linear-gradient(135deg, #ffd60a, #ff9f0a);"><i
+                class="fi fi-rs-trophy"></i></div>
+            <div class="dock-item-dot di-dot"></div>
+          </div>
+
+          <div class="di-sep dock-sep" aria-hidden="true"></div>
+
+          <div class="dock-item di-item" id="dock-github" data-href="https://github.com/saturnsz" data-label="GitHub"
+            role="button" tabindex="0" aria-label="GitHub">
+            <div class="di-popup"><span class="di-popup-dot" style="color:#aaa"></span>GitHub</div>
+            <div class="dock-item-icon di-icon" style="background: #24292e;">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="#fff">
+                <path
+                  d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z" />
+              </svg>
+            </div>
+          </div>
+
+          <div class="dock-item di-item" id="dock-linkedin"
+            data-href="https://www.linkedin.com/in/adhyasta-adwaya-al-karim/" data-label="LinkedIn" role="button"
+            tabindex="0" aria-label="LinkedIn">
+            <div class="di-popup"><span class="di-popup-dot" style="color:#0a66c2"></span>LinkedIn</div>
+            <div class="dock-item-icon di-icon" style="background: #0a66c2;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="#fff">
+                <path
+                  d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+              </svg>
+            </div>
+          </div>
+
+          <div class="dock-item di-item" id="dock-spotify"
+            data-href="https://open.spotify.com/playlist/6ZoCDAvQedZWIUV8cPZO7z" data-label="Spotify" role="button"
+            tabindex="0" aria-label="Spotify">
+            <div class="di-popup"><span class="di-popup-dot" style="color:#1ed760"></span>Spotify</div>
+            <div class="dock-item-icon di-icon" style="background: linear-gradient(135deg, #1ed760, #1db954);">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="#fff">
+                <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.498 17.306c-.215.353-.675.467-1.028.252-2.825-1.727-6.381-2.118-10.57-1.16-.403.092-.807-.16-.899-.562-.093-.404.16-.807.562-.9 4.588-1.047 8.52-.606 11.684 1.341.353.216.467.676.251 1.029zm1.467-3.262c-.27.44-.848.58-1.288.31-3.235-1.988-8.167-2.564-11.994-1.401-.497.15-1.026-.134-1.176-.63-.15-.497.134-1.026.63-1.176 4.375-1.328 9.808-.687 13.518 1.599.44.27.58.848.31 1.288zm.126-3.41c-3.88-2.304-10.282-2.516-13.992-1.39-.594.18-1.22-.16-1.4-.754-.18-.595.16-1.221.755-1.4 4.263-1.294 11.332-1.044 15.811 1.615.534.316.71 1.009.393 1.542-.317.534-1.01.71-1.567.387z"/>
+              </svg>
+            </div>
+          </div>
+
+          <div class="dock-item di-item" id="dock-email" data-href="mailto:adhyastawaya4@gmail.com" data-label="Email"
+            role="button" tabindex="0" aria-label="Email">
+            <div class="di-popup"><span class="di-popup-dot" style="color:#ff453a"></span>Email</div>
+            <div class="dock-item-icon di-icon" style="background: linear-gradient(135deg, #ff453a, #ff375f);"><i
+                class="ph ph-envelope"></i></div>
+          </div>
+
+        </div><!-- /di-icon-group -->
+
+      </div><!-- /di-dock -->
+    </nav>
+
+  </div><!-- /desktop -->
+
+  <!-- ── LIGHTBOX ── -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-label="Certificate viewer" aria-modal="true">
+    <button class="lightbox-close" id="lightboxClose" aria-label="Close">×</button>
+    <button class="lightbox-nav lightbox-prev" id="lightboxPrev" aria-label="Previous">‹</button>
+    <img class="lightbox-img" id="lightboxImg" src="" alt="Certificate" />
+    <button class="lightbox-nav lightbox-next" id="lightboxNext" aria-label="Next">›</button>
+  </div>
+
+  <!-- ── PROJECT MODAL ── -->
+  <div class="project-modal" id="projectModal" role="dialog" aria-label="Project details" aria-modal="true">
+    <div class="project-modal-backdrop" id="projectModalBackdrop"></div>
+    <div class="project-modal-content">
+      <div class="project-modal-header">
+        <div>
+          <div id="modal-tags" style="display:flex;gap:5px;flex-wrap:wrap;margin-bottom:6px;"></div>
+          <h2 style="font-size:18px;font-weight:700;color:var(--text-primary);letter-spacing:-0.02em;" id="modal-title">
+          </h2>
+        </div>
+        <button class="project-modal-close" id="projectModalClose" aria-label="Close">×</button>
+      </div>
+      <div class="project-modal-body">
+        <div class="project-modal-img">
+          <img id="modal-img" src="" alt="" />
+        </div>
+        <p id="modal-desc" style="font-size:13px;line-height:1.7;color:var(--text-secondary);margin-bottom:16px;"></p>
+        <a id="modal-link" href="#" target="_blank" rel="noopener" class="mac-btn primary">🔗 Visit Project ↗</a>
       </div>
     </div>
-  </section>
+  </div>
 
-  <!-- CERTIFICATE PREVIEW -->
-  <section class="section cert-preview-section reveal" id="cert-preview">
-    <div class="container">
-      <div class="section-index">04 — Certificate</div>
-      <div class="section-header">
-        <div class="section-label">Certificate</div>
-        <h2 class="section-title">Achievements</h2>
-      </div>
-      <div class="cert-preview-grid">
-        <div class="cert-thumb"><img src="sertifikat/foto 10.jpg" alt="Microsoft Learning" /><span>Microsoft
-            Learning</span></div>
-        <div class="cert-thumb"><img src="sertifikat/foto 17.jpg" alt="Hackthon Refactory X UGM 2026" /><span>Hackthon
-            Refactory X UGM 2026</span></div>
-        <div class="cert-thumb"><img src="sertifikat/foto 11.jpg"
-            alt="Winner 1st Computer Vision Bootcamp" /><span>Winner 1st Computer Vision Bootcamp</span></div>
-      </div>
-      <div class="section-cta">
-        <a href="certificate.html" class="cta-link" id="view-all-certs">View All Certificate <span
-            class="arrow">→</span></a>
-      </div>
-    </div>
-  </section>
-
-  <!-- MUSIC / SPOTIFY -->
-  <section class="section spotify-section reveal" id="spotify-playlist">
-    <div class="container">
-      <div class="section-index">05 — Vibes</div>
-      <div class="section-header">
-        <div class="section-label">Current Rotation</div>
-        <h2 class="section-title">Coding Playlist</h2>
-        <p class="spotify-desc">A curated mix of music genres to keep the focus sharp and the vibes immaculate.</p>
-      </div>
-      <div class="spotify-wrapper" style="display: flex; flex-direction: column; gap: 24px;">
-        <iframe style="border-radius:12px"
-          src="https://open.spotify.com/embed/playlist/6ZoCDAvQedZWIUV8cPZO7z?si=d0681a38e5ee4d86" width="100%"
-          height="352" frameBorder="0" allowfullscreen=""
-          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-
-        <iframe style="border-radius:12px"
-          src="https://open.spotify.com/embed/playlist/2iVf49nI1dZjLs2Bl3CjJo?si=68bf5f2e84184d12" width="100%"
-          height="352" frameBorder="0" allowfullscreen=""
-          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section class="section contact-section reveal" id="contact">
-    <div class="container contact-inner">
-      <div class="section-index" style="color: var(--stone-light);">06 — Contact</div>
-      <p class="contact-tagline">Let's interact and build something new together</p>
-      <p class="contact-sub">You don't need to think a lot of time, the important thing is to go and do it</p>
-      <div class="contact-links">
-        <a href="https://github.com/saturnsz" target="_blank" id="contact-github">Github</a>
-        <a href="https://share.streamlit.io/user/saturnsz" target="_blank" id="contact-streamlit">Streamlit</a>
-        <a href="https://www.linkedin.com/in/adhyasta-adwaya-al-karim/" target="_blank"
-          id="contact-linkedin">LinkedIn</a>
-        <a href="mailto:adhyastawaya4@gmail.com" id="contact-email">Email</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer class="footer">
-    <div class="container footer-inner">
-      <span class="footer-logo">Ayam Balado</span>
-      <span style="color: var(--stone-light); font-size: 0.73rem;">© 2026 Adhyasta Adwaya Al Karim</span>
-      <div class="footer-links">
-        <a href="https://github.com/saturnsz" target="_blank">Github</a>
-        <a href="https://www.linkedin.com/in/adhyasta-adwaya-al-karim/" target="_blank">LinkedIn</a>
-        <a href="mailto:adhyastawaya4@gmail.com">Email</a>
-      </div>
-    </div>
-  </footer>
-
-
+  <script src="three.min.js"></script>
+  <script src="OBJLoader.js"></script>
+  <script src="OrbitControls.js"></script>
   <script src="main.js"></script>
 </body>
 

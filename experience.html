@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="">
 
 <head>
   <meta charset="UTF-8" />
@@ -9,159 +9,215 @@
     content="Professional experience of Adhyasta Adwaya Al Karim in AI, Computer Vision, and machine learning competitions." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700;800&display=swap"
-    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
+
+  <style>
+    body {
+      overflow: auto;
+      background: #e8e8ed;
+    }
+
+    [data-theme="dark"] body,
+    body[data-theme="dark"] {
+      background: #1c1c1e;
+    }
+
+    .exp-item {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 28px;
+      padding: 32px 0;
+      border-bottom: 0.5px solid rgba(0, 0, 0, 0.07);
+      align-items: start;
+    }
+
+    [data-theme="dark"] .exp-item {
+      border-bottom-color: rgba(255, 255, 255, 0.06);
+    }
+
+    .exp-item:last-child {
+      border-bottom: none;
+    }
+
+    .exp-item-img {
+      border-radius: 10px;
+      overflow: hidden;
+      aspect-ratio: 4/3;
+      background: rgba(0, 0, 0, 0.04);
+    }
+
+    .exp-item-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .exp-item-period {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 6px;
+    }
+
+    .exp-item-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--text-primary);
+      letter-spacing: -0.02em;
+      margin-bottom: 4px;
+    }
+
+    .exp-item-org {
+      font-size: 13px;
+      color: var(--text-secondary);
+      margin-bottom: 14px;
+    }
+
+    .exp-item-points {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .exp-item-point {
+      font-size: 13px;
+      line-height: 1.6;
+      color: var(--text-secondary);
+      padding-left: 14px;
+      position: relative;
+    }
+
+    .exp-item-point::before {
+      content: '·';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    @media(max-width:640px) {
+      .exp-item {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
 
-<body class="experience-page">
+<body class="subpage experience-page">
 
-  <!-- NAV — Floating Pill -->
-  <nav class="navbar" id="navbar">
-    <div class="nav-pill">
-      <a href="index.html" class="nav-logo">Ayam Balado</a>
-      <ul class="nav-links">
-        <li><a href="index.html" class="nav-link">Beranda</a></li>
-        <li><a href="portfolio.html" class="nav-link">Project</a></li>
-        <li><a href="experience.html" class="nav-link active">Experience</a></li>
-        <li><a href="index.html#about" class="nav-link">About Me</a></li>
-        <li><a href="certificate.html" class="nav-link">Certificate</a></li>
-      </ul>
-      <button class="hamburger" id="hamburger" aria-label="Menu">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-    <div class="mobile-menu" id="mobileMenu">
-      <a href="index.html">Beranda</a>
-      <a href="portfolio.html">Project</a>
-      <a href="experience.html">Experience</a>
-      <a href="index.html#about">About Me</a>
-      <a href="certificate.html">Certificate</a>
-    </div>
-  </nav>
+  <!-- MENU BAR -->
+  <header class="sp-navbar">
+    <a href="index.html" class="sp-nav-back" aria-label="Back to Home">‹ Home</a>
+    <span class="sp-nav-title">Experience</span>
+    <button class="theme-btn" id="themeToggle" aria-label="Toggle dark mode" style="margin-left:auto;">🌙</button>
+    <div class="menubar-clock" id="menubarClock" style="font-size:12px;padding:0 8px;"></div>
+  </header>
 
-  <!-- PAGE HERO — plain, no image -->
-  <section class="page-hero">
-    <div class="container">
-      <div class="page-hero-label">Background</div>
-      <h1 class="page-hero-title">Experience</h1>
-      <p class="page-hero-sub">Building real-world impact through AI, Machine Learning, and Computer Vision.</p>
-    </div>
-  </section>
+  <!-- WINDOW CHROME -->
+  <div style="padding: calc(var(--menubar-h) + 16px) clamp(14px,4vw,48px) 0;">
+    <div class="sp-window">
+      <div class="sp-window-bar">
+        <a href="index.html" aria-label="Close — back to home">
+          <div class="sp-wc red"></div>
+        </a>
+        <div class="sp-wc yellow"></div>
+        <div class="sp-wc green"></div>
+      </div>
 
-  <!-- EXPERIENCE LIST -->
-  <section class="section" style="background: var(--bg-light); padding-top: 0; border-top: none;">
-    <div class="container">
-      <div class="experience-list">
+      <!-- PAGE HEADER -->
+      <div class="page-hero" style="padding:36px 36px 28px;">
+        <div class="page-hero-label">Background</div>
+        <h1 class="page-hero-title">Experience</h1>
+        <p class="page-hero-sub">Building real-world impact through AI, Machine Learning, and Computer Vision.</p>
+      </div>
 
-        <!-- Experience 1 -->
+      <!-- EXPERIENCE LIST -->
+      <div style="padding: 0 36px 36px;">
+
         <div class="exp-item reveal" id="exp1">
-          <div class="exp-item-num">01</div>
           <div class="exp-item-img">
-            <img src="experience/gambar 6.png" alt="Winner 1st Best Project Computer Vision" />
+            <img src="experience/gambar 6.png" alt="Winner 1st Best Project Computer Vision" loading="lazy" />
           </div>
-          <div class="exp-item-meta">
-            <span class="exp-item-period">Achievement</span>
+          <div>
+            <div class="exp-item-period">Achievement</div>
             <h2 class="exp-item-title">Winner 1st Best Project Computer Vision</h2>
-            <p class="exp-item-subtitle">1st Place Winner — Computer Vision Bootcamp HIMATIKA × CODING COLLECTIVE</p>
-            <div class="exp-item-desc">
-              <ul>
-                <li>Awarded 1st Place for developing an automated AI-powered school safety and bullying detection system
-                  via CCTV camera streams.</li>
-                <li>Engineered a hybrid Computer Vision architecture combining YOLO for real-time action detection and
-                  CNN for deep classification of aggressive behavior patterns.</li>
-                <li>Designed the end-to-end pipeline to enable early intervention and automated incident alert
-                  capability for educational environments.</li>
-              </ul>
+            <p class="exp-item-org">1st Place Winner — Computer Vision Bootcamp HIMATIKA × CODING COLLECTIVE</p>
+            <div class="exp-item-points">
+              <div class="exp-item-point">Awarded 1st Place for developing an automated AI-powered school safety and
+                bullying detection system via CCTV camera streams.</div>
+              <div class="exp-item-point">Engineered a hybrid Computer Vision architecture combining YOLO for real-time
+                action detection and CNN for deep classification of aggressive behavior patterns.</div>
+              <div class="exp-item-point">Designed the end-to-end pipeline to enable early intervention and automated
+                incident alert capability for educational environments.</div>
             </div>
           </div>
         </div>
 
-        <!-- Experience 2 -->
         <div class="exp-item reveal" id="exp2">
-          <div class="exp-item-num">02</div>
           <div class="exp-item-img">
-            <img src="experience/gambar 7.png" alt="Community Service Officer JOGJA CODING HOUSE" />
+            <img src="experience/gambar 7.png" alt="Community Service Officer JOGJA CODING HOUSE" loading="lazy" />
           </div>
-          <div class="exp-item-meta">
-            <span class="exp-item-period">September 2025 — Januari 2026</span>
+          <div>
+            <div class="exp-item-period">September 2025 — Januari 2026</div>
             <h2 class="exp-item-title">Community Service Officer</h2>
-            <p class="exp-item-subtitle">JOGJA CODING HOUSE</p>
-            <div class="exp-item-desc">
-              <ul>
-                <li>Coordinated and facilitated interactive webinars and training sessions to boost community
-                  engagement.</li>
-                <li>Managed the end-to-end execution of community events, ensuring seamless logistics and successful
-                  delivery.</li>
-                <li>Collaborated closely with team members to strategize, plan event proceedings, and ensure
-                  organizational goals were met.</li>
-              </ul>
+            <p class="exp-item-org">JOGJA CODING HOUSE</p>
+            <div class="exp-item-points">
+              <div class="exp-item-point">Coordinated and facilitated interactive webinars and training sessions to
+                boost community engagement.</div>
+              <div class="exp-item-point">Managed the end-to-end execution of community events, ensuring seamless
+                logistics and successful delivery.</div>
+              <div class="exp-item-point">Collaborated closely with team members to strategize, plan event proceedings,
+                and ensure organizational goals were met.</div>
             </div>
           </div>
         </div>
 
-        <!-- Experience 3 -->
         <div class="exp-item reveal" id="exp3">
-          <div class="exp-item-num">03</div>
           <div class="exp-item-img">
-            <img src="sertifikat/foto 17.jpg" alt="Hackaton Refactory X UGM 2026" />
+            <img src="sertifikat/foto 17.jpg" alt="Hackaton Refactory X UGM 2026" loading="lazy" />
           </div>
-          <div class="exp-item-meta">
-            <span class="exp-item-period">Hackathon 2026</span>
+          <div>
+            <div class="exp-item-period">Hackathon 2026</div>
             <h2 class="exp-item-title">Hackaton Refactory × UGM 2026</h2>
-            <p class="exp-item-subtitle">Large Language Model</p>
-            <div class="exp-item-desc">
-              <ul>
-                <li>Developed and integrated an LLM-based chatbot utilizing the Gemini API to deliver smart
-                  conversational features.</li>
-                <li>Curated and preprocessed datasets to ensure optimal model readiness and performance.</li>
-                <li>Designed an intuitive user interface (UI) and managed the end-to-end deployment of the application.
-                </li>
-              </ul>
+            <p class="exp-item-org">Large Language Model</p>
+            <div class="exp-item-points">
+              <div class="exp-item-point">Developed and integrated an LLM-based chatbot utilizing the Gemini API to
+                deliver smart conversational features.</div>
+              <div class="exp-item-point">Curated and preprocessed datasets to ensure optimal model readiness and
+                performance.</div>
+              <div class="exp-item-point">Designed an intuitive user interface (UI) and managed the end-to-end
+                deployment of the application.</div>
             </div>
           </div>
         </div>
 
-        <!-- Experience 4 -->
         <div class="exp-item reveal" id="exp4">
-          <div class="exp-item-num">04</div>
           <div class="exp-item-img">
-            <img src="gambar pkm.jpg" alt="Program Kreativitas Mahasiswa PKM-KC 2024-2026" />
+            <img src="gambar pkm.jpg" alt="Program Kreativitas Mahasiswa PKM-KC 2024-2026" loading="lazy" />
           </div>
-          <div class="exp-item-meta">
-            <span class="exp-item-period">2024 — 2026</span>
+          <div>
+            <div class="exp-item-period">2024 — 2026</div>
             <h2 class="exp-item-title">Program Kreativitas Mahasiswa PKM-KC 2024 — 2026</h2>
-            <p class="exp-item-subtitle">Computer Vision — BASys-School</p>
-            <div class="exp-item-desc">
-              <ul>
-                <li>Developed an intelligent Computer Vision model utilizing YOLO algorithms to automatically detect
-                  bullying behaviors in school environments (BASys-School).</li>
-                <li>Designed the operational workflow and system architecture, integrating real-time video streaming
-                  data into a web-based monitoring platform.</li>
-                <li>Collected, annotated, and pre-processed raw video footage to establish the primary dataset for
-                  training the Deep Learning model.</li>
-              </ul>
+            <p class="exp-item-org">Computer Vision — BASys-School</p>
+            <div class="exp-item-points">
+              <div class="exp-item-point">Developed an intelligent Computer Vision model utilizing YOLO algorithms to
+                automatically detect bullying behaviors in school environments (BASys-School).</div>
+              <div class="exp-item-point">Designed the operational workflow and system architecture, integrating
+                real-time video streaming data into a web-based monitoring platform.</div>
+              <div class="exp-item-point">Collected, annotated, and pre-processed raw video footage to establish the
+                primary dataset for training the Deep Learning model.</div>
             </div>
           </div>
         </div>
 
       </div>
-    </div>
-  </section>
+    </div><!-- /sp-window -->
+  </div>
 
-  <!-- FOOTER -->
-  <footer class="footer">
-    <div class="container footer-inner">
-      <span class="footer-logo">Ayam Balado</span>
-      <span style="color: var(--stone-light); font-size: 0.73rem;">© 2026 Adhyasta Adwaya Al Karim</span>
-      <div class="footer-links">
-        <a href="https://github.com/saturnsz" target="_blank">Github</a>
-        <a href="https://www.linkedin.com/in/adhyasta-adwaya-al-karim/" target="_blank">LinkedIn</a>
-        <a href="mailto:adhyastawaya4@gmail.com">Email</a>
-      </div>
-    </div>
-  </footer>
+  <div class="sp-footer">© 2026 Adhyasta Adwaya Al Karim</div>
 
   <script src="main.js"></script>
 </body>
