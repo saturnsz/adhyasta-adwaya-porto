@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="">
+<html lang="en" data-theme="dark" data-accent="blood-red">
 
 <head>
   <meta charset="UTF-8" />
@@ -13,18 +13,18 @@
   <link rel="stylesheet" href="style.css" />
 
   <style>
-    body { overflow: auto; background: #e8e8ed; }
-    [data-theme="dark"] body, body[data-theme="dark"] { background: #1c1c1e; }
+    body { overflow: auto; background: #0c0608; }
+    [data-theme="dark"] body, body[data-theme="dark"] { background: #0c0608; }
     .sp-container { padding: 12px clamp(14px,4vw,48px) 40px; margin-top: var(--menubar-h); }
-    .portfolio-item { display: grid; grid-template-columns: 220px 1fr; gap: 24px; padding: 28px 0; border-bottom: 0.5px solid rgba(0,0,0,0.07); align-items: start; }
-    [data-theme="dark"] .portfolio-item { border-bottom-color: rgba(255,255,255,0.06); }
+    .portfolio-item { display: grid; grid-template-columns: 220px 1fr; gap: 24px; padding: 28px 0; border-bottom: 0.5px solid rgba(184,12,26,0.18); align-items: start; }
+    [data-theme="dark"] .portfolio-item { border-bottom-color: rgba(184,12,26,0.18); }
     .portfolio-item:last-child { border-bottom: none; }
     .portfolio-item-num { font-size:11px; font-weight:600; letter-spacing:0.1em; color:var(--text-tertiary); margin-bottom:8px; }
-    .portfolio-item-img { border-radius:10px; overflow:hidden; aspect-ratio:16/9; background:rgba(0,0,0,0.04); }
+    .portfolio-item-img { border-radius:10px; overflow:hidden; aspect-ratio:16/9; background:rgba(0,0,0,0.4); }
     .portfolio-item-img img { width:100%; height:100%; object-fit:cover; transition:transform 450ms cubic-bezier(0.32,0.72,0,1); }
     .portfolio-item:hover .portfolio-item-img img { transform:scale(1.04); }
     .portfolio-tags { display:flex; flex-wrap:wrap; gap:5px; margin-bottom:10px; }
-    .portfolio-tag { font-size:10px; font-weight:600; letter-spacing:0.05em; padding:3px 9px; border-radius:999px; background:rgba(10,132,255,0.08); border:0.5px solid rgba(10,132,255,0.2); color:var(--accent); }
+    .portfolio-tag { font-size:10px; font-weight:600; letter-spacing:0.05em; padding:3px 9px; border-radius:999px; background:rgba(184,12,26,0.15); border:0.5px solid rgba(184,12,26,0.35); color:var(--accent); }
     .portfolio-item-title { font-size:17px; font-weight:700; color:var(--text-primary); letter-spacing:-0.02em; line-height:1.3; margin-bottom:8px; }
     .portfolio-item-title a { color:inherit; text-decoration:none; transition:color 220ms; }
     .portfolio-item-title a:hover { color:var(--accent); }

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="">
+<html lang="en" data-theme="dark" data-accent="blood-red">
 
 <head>
   <meta charset="UTF-8" />
@@ -13,20 +13,98 @@
   <link rel="stylesheet" href="style.css" />
 
   <style>
-    body { overflow: auto; background: #e8e8ed; }
-    [data-theme="dark"] body, body[data-theme="dark"] { background: #1c1c1e; }
-    .cert-filters { display:flex; gap:6px; flex-wrap:wrap; margin-bottom:20px; }
-    .photos-filter { font-family:var(--font); font-size:12px; font-weight:500; padding:5px 14px; border-radius:999px; border:0.5px solid rgba(0,0,0,0.12); background:rgba(255,255,255,0.6); color:var(--text-secondary); cursor:pointer; transition:all 220ms; }
-    .photos-filter:hover { background:rgba(255,255,255,0.85); color:var(--text-primary); }
-    .photos-filter.active { background:var(--accent); border-color:transparent; color:#fff; }
-    [data-theme="dark"] .photos-filter { background:rgba(50,50,56,0.7); border-color:rgba(255,255,255,0.1); }
-    .cert-grid-main { display:grid; grid-template-columns:repeat(auto-fill, minmax(200px,1fr)); gap:12px; }
-    .cert-sp-item { border-radius:12px; overflow:hidden; cursor:pointer; position:relative; aspect-ratio:4/3; background:rgba(0,0,0,0.04); transition:all 320ms cubic-bezier(0.32,0.72,0,1); box-shadow:0 2px 8px rgba(0,0,0,0.07); }
-    .cert-sp-item:hover { transform:scale(1.03); box-shadow:0 10px 30px rgba(0,0,0,0.12); }
-    .cert-sp-item img { width:100%; height:100%; object-fit:cover; }
-    .cert-sp-label { position:absolute; bottom:0; left:0; right:0; background:linear-gradient(transparent,rgba(0,0,0,0.72)); color:#fff; font-size:10px; font-weight:500; padding:22px 8px 8px; text-align:center; line-height:1.3; }
-    @media(max-width:480px){
-      .cert-grid-main { grid-template-columns:1fr 1fr; }
+    body {
+      overflow: auto;
+      background: #0c0608;
+    }
+
+    [data-theme="dark"] body,
+    body[data-theme="dark"] {
+      background: #0c0608;
+    }
+
+    .cert-filters {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+
+    .photos-filter {
+      font-family: var(--font);
+      font-size: 12px;
+      font-weight: 500;
+      padding: 5px 14px;
+      border-radius: 999px;
+      border: 0.5px solid rgba(184, 12, 26, 0.25);
+      background: rgba(20, 10, 14, 0.6);
+      color: var(--text-secondary);
+      cursor: pointer;
+      transition: all 220ms;
+    }
+
+    .photos-filter:hover {
+      background: rgba(35, 14, 20, 0.85);
+      color: var(--text-primary);
+    }
+
+    .photos-filter.active {
+      background: var(--accent);
+      border-color: transparent;
+      color: #fff;
+    }
+
+    [data-theme="dark"] .photos-filter {
+      background: rgba(26, 12, 16, 0.85);
+      border-color: rgba(184, 12, 26, 0.3);
+    }
+
+    .cert-grid-main {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 12px;
+    }
+
+    .cert-sp-item {
+      border-radius: 12px;
+      overflow: hidden;
+      cursor: pointer;
+      position: relative;
+      aspect-ratio: 4/3;
+      background: rgba(0, 0, 0, 0.04);
+      transition: all 320ms cubic-bezier(0.32, 0.72, 0, 1);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+    }
+
+    .cert-sp-item:hover {
+      transform: scale(1.03);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+    }
+
+    .cert-sp-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .cert-sp-label {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(transparent, rgba(0, 0, 0, 0.72));
+      color: #fff;
+      font-size: 10px;
+      font-weight: 500;
+      padding: 22px 8px 8px;
+      text-align: center;
+      line-height: 1.3;
+    }
+
+    @media(max-width:480px) {
+      .cert-grid-main {
+        grid-template-columns: 1fr 1fr;
+      }
     }
   </style>
 </head>
@@ -45,7 +123,9 @@
   <div style="padding: calc(var(--menubar-h) + 16px) clamp(14px,4vw,48px) 0;">
     <div class="sp-window">
       <div class="sp-window-bar">
-        <a href="index.html" aria-label="Close — back to home"><div class="sp-wc red"></div></a>
+        <a href="index.html" aria-label="Close — back to home">
+          <div class="sp-wc red"></div>
+        </a>
         <div class="sp-wc yellow"></div>
         <div class="sp-wc green"></div>
       </div>
@@ -54,7 +134,8 @@
       <div class="page-hero" style="padding:36px 36px 28px;">
         <div class="page-hero-label">Achievements</div>
         <h1 class="page-hero-title">Certificate</h1>
-        <p class="page-hero-sub">A collection of certifications and awards across AI, Machine Learning, and technology competitions.</p>
+        <p class="page-hero-sub">A collection of certifications and awards across AI, Machine Learning, and technology
+          competitions.</p>
       </div>
 
       <!-- CERT CONTENT -->
@@ -70,57 +151,68 @@
         <!-- Grid -->
         <div class="cert-grid-main" id="certGridMain">
 
-          <div class="cert-sp-item reveal" data-lightbox="sertifikat/foto 10.jpg" data-label="Microsoft Learning" data-cat="kursus" id="cert10" role="button" tabindex="0">
+          <div class="cert-sp-item reveal" data-lightbox="sertifikat/foto 10.jpg" data-label="Microsoft Learning"
+            data-cat="kursus" id="cert10" role="button" tabindex="0">
             <img src="sertifikat/foto 10.jpg" alt="Microsoft Learning" loading="lazy" />
             <div class="cert-sp-label">Microsoft Learning</div>
           </div>
 
-          <div class="cert-sp-item reveal" data-lightbox="sertifikat/foto 11.jpg" data-label="Winner 1st Computer Vision Bootcamp" data-cat="lomba" id="cert11" role="button" tabindex="0">
+          <div class="cert-sp-item reveal" data-lightbox="sertifikat/foto 11.jpg"
+            data-label="Winner 1st Computer Vision Bootcamp" data-cat="lomba" id="cert11" role="button" tabindex="0">
             <img src="sertifikat/foto 11.jpg" alt="Winner 1st Computer Vision Bootcamp" loading="lazy" />
             <div class="cert-sp-label">Winner 1st Computer Vision Bootcamp</div>
           </div>
 
-          <div class="cert-sp-item reveal" data-lightbox="sertifikat/foto 12.jpg" data-label="Certificate" data-cat="kursus" id="cert12" role="button" tabindex="0">
+          <div class="cert-sp-item reveal" data-lightbox="sertifikat/foto 12.jpg" data-label="Certificate"
+            data-cat="kursus" id="cert12" role="button" tabindex="0">
             <img src="sertifikat/foto 12.jpg" alt="Certificate" loading="lazy" />
             <div class="cert-sp-label">Certificate</div>
           </div>
 
-          <div class="cert-sp-item reveal" data-lightbox="sertifikat/foto 13.jpg" data-label="Certificate" data-cat="kursus" id="cert13" role="button" tabindex="0">
+          <div class="cert-sp-item reveal" data-lightbox="sertifikat/foto 13.jpg" data-label="Certificate"
+            data-cat="kursus" id="cert13" role="button" tabindex="0">
             <img src="sertifikat/foto 13.jpg" alt="Certificate" loading="lazy" />
             <div class="cert-sp-label">Certificate</div>
           </div>
 
-          <div class="cert-sp-item reveal" data-lightbox="sertifikat/foto 14.jpg" data-label="Certificate" data-cat="kursus" id="cert14" role="button" tabindex="0">
+          <div class="cert-sp-item reveal" data-lightbox="sertifikat/foto 14.jpg" data-label="Certificate"
+            data-cat="kursus" id="cert14" role="button" tabindex="0">
             <img src="sertifikat/foto 14.jpg" alt="Certificate" loading="lazy" />
             <div class="cert-sp-label">Certificate</div>
           </div>
 
-          <div class="cert-sp-item reveal" data-lightbox="sertifikat/foto 15.jpg" data-label="Certificate" data-cat="kursus" id="cert15" role="button" tabindex="0">
+          <div class="cert-sp-item reveal" data-lightbox="sertifikat/foto 15.jpg" data-label="Certificate"
+            data-cat="kursus" id="cert15" role="button" tabindex="0">
             <img src="sertifikat/foto 15.jpg" alt="Certificate" loading="lazy" />
             <div class="cert-sp-label">Certificate</div>
           </div>
 
-          <div class="cert-sp-item reveal" data-lightbox="sertifikat/foto 17.jpg" data-label="Hackathon Refactory × UGM 2026" data-cat="lomba" id="cert16" role="button" tabindex="0">
+          <div class="cert-sp-item reveal" data-lightbox="sertifikat/foto 17.jpg"
+            data-label="Hackathon Refactory × UGM 2026" data-cat="lomba" id="cert16" role="button" tabindex="0">
             <img src="sertifikat/foto 17.jpg" alt="Hackathon Refactory × UGM 2026" loading="lazy" />
             <div class="cert-sp-label">Hackathon Refactory × UGM 2026</div>
           </div>
 
-          <div class="cert-sp-item reveal" data-lightbox="sertifikat/foto 18.png" data-label="Certificate" data-cat="kursus" id="cert18" role="button" tabindex="0">
+          <div class="cert-sp-item reveal" data-lightbox="sertifikat/foto 18.png" data-label="Certificate"
+            data-cat="kursus" id="cert18" role="button" tabindex="0">
             <img src="sertifikat/foto 18.png" alt="Certificate" loading="lazy" />
             <div class="cert-sp-label">Certificate</div>
           </div>
 
-          <div class="cert-sp-item reveal" data-lightbox="sertifikat/foto 19.png" data-label="Certificate" data-cat="kursus" id="cert19" role="button" tabindex="0">
+          <div class="cert-sp-item reveal" data-lightbox="sertifikat/foto 19.png" data-label="Certificate"
+            data-cat="kursus" id="cert19" role="button" tabindex="0">
             <img src="sertifikat/foto 19.png" alt="Certificate" loading="lazy" />
             <div class="cert-sp-label">Certificate</div>
           </div>
 
-          <div class="cert-sp-item reveal" data-lightbox="sertifikat/foto 20.jpg" data-label="Certificate" data-cat="kursus" id="cert20" role="button" tabindex="0">
+          <div class="cert-sp-item reveal" data-lightbox="sertifikat/foto 20.jpg" data-label="Certificate"
+            data-cat="kursus" id="cert20" role="button" tabindex="0">
             <img src="sertifikat/foto 20.jpg" alt="Certificate" loading="lazy" />
             <div class="cert-sp-label">Certificate</div>
           </div>
 
-          <div class="cert-sp-item reveal" data-lightbox="sertifikat/foto 21.png" data-label="Certificate" data-cat="organisasi" id="cert21" role="button" tabindex="0">
+          <div class="cert-sp-item reveal" data-lightbox="sertifikat/foto 21.png" data-label="Certificate"
+            data-cat="organisasi" id="cert21" role="button" tabindex="0">
             <img src="sertifikat/foto 21.png" alt="Certificate" loading="lazy" />
             <div class="cert-sp-label">Certificate</div>
           </div>

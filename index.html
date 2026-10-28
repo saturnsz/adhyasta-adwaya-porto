@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="">
+<html lang="en" data-theme="dark" data-accent="blood-red">
 
 <head>
   <meta charset="UTF-8" />
@@ -27,8 +27,7 @@
   <div class="desktop" id="desktop">
 
     <!-- WALLPAPER -->
-    <div class="desktop-wallpaper"
-      style="background-image:url('download%20(44).jpg');"></div>
+    <div class="desktop-wallpaper" style="background-image:url('yunani.jpg');"></div>
 
     <!-- ── MENU BAR ── -->
     <header class="menubar" role="banner">
@@ -78,18 +77,121 @@
           </svg>
         </div>
         <!-- Control Center -->
-        <div class="menubar-icon" aria-label="Control Center">
+        <div class="menubar-icon" aria-label="Control Center" id="menubarControlCenter"
+          title="Control Center & Color Palette">
           <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
             <polyline points="9 22 9 12 15 12 15 22" />
           </svg>
         </div>
         <!-- Theme Toggle -->
-        <button class="theme-btn" id="themeToggle" aria-label="Toggle dark mode">🌙</button>
+        <button class="theme-btn" id="themeToggle" aria-label="Toggle theme">🌙</button>
         <!-- Clock -->
         <div class="menubar-clock" id="menubarClock" aria-live="polite">Sen 18 Okt 23.34</div>
       </div>
     </header>
+
+    <!-- ── CONTROL CENTER & PALETTE PANEL (Mac-OS-Desktop) ── -->
+    <div class="control-center-panel" id="controlCenterPanel" role="dialog" aria-label="Control Center"
+      aria-hidden="true">
+      <div class="cc-header">
+        <div class="cc-title">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+            <rect x="2" y="3" width="20" height="14" rx="2" />
+            <line x1="8" y1="21" x2="16" y2="21" />
+            <line x1="12" y1="17" x2="12" y2="21" />
+          </svg>
+          <span>Control Center</span>
+        </div>
+        <div class="cc-subtitle" id="ccThemeName">Merah Darah &amp; Hitam</div>
+      </div>
+
+      <!-- Theme Switcher -->
+      <div class="cc-card">
+        <div class="cc-label">
+          <span>Appearance / Theme</span>
+          <span style="font-size:10px; opacity:0.7;">Greek Crimson &amp; Black</span>
+        </div>
+        <div class="cc-theme-grid">
+          <button class="cc-theme-btn" data-theme-val="dark" aria-label="Merah Darah & Hitam">
+            <span class="icon">🩸</span>
+            <span>Blood &amp; Black</span>
+          </button>
+          <button class="cc-theme-btn" data-theme-val="crimson-dark" aria-label="Merah Tua">
+            <span class="icon">⚔️</span>
+            <span>Merah Tua</span>
+          </button>
+          <button class="cc-theme-btn" data-theme-val="obsidian" aria-label="Hitam Obsidian">
+            <span class="icon">🖤</span>
+            <span>Hitam Pekat</span>
+          </button>
+          <button class="cc-theme-btn" data-theme-val="light" aria-label="Light theme">
+            <span class="icon">☀️</span>
+            <span>Light</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Color Palette (Merah Darah, Merah Tua & Hitam) -->
+      <div class="cc-card">
+        <div class="cc-label">
+          <span>Accent Color Palette</span>
+          <span id="ccActiveAccentName" style="color:var(--accent); text-transform:none; font-weight:700;">Merah Darah</span>
+        </div>
+        <div class="cc-palette-grid">
+          <button class="cc-palette-dot" data-accent-val="blood-red" style="background:#b80c1a;"
+            title="Merah Darah (Blood Red)" aria-label="Merah Darah"></button>
+          <button class="cc-palette-dot" data-accent-val="dark-red" style="background:#5c0811;"
+            title="Merah Tua (Dark Crimson)" aria-label="Merah Tua"></button>
+          <button class="cc-palette-dot" data-accent-val="black" style="background:#141214;"
+            title="Hitam Obsidian (Onyx Black)" aria-label="Hitam Obsidian"></button>
+          <button class="cc-palette-dot" data-accent-val="scarlet" style="background:#d91b24;"
+            title="Merah Menyala (Scarlet Ares)" aria-label="Merah Menyala"></button>
+          <button class="cc-palette-dot" data-accent-val="ruby" style="background:#7a0d18;"
+            title="Merah Ruby (Deep Ruby)" aria-label="Merah Ruby"></button>
+          <button class="cc-palette-dot" data-accent-val="charcoal" style="background:#292326;"
+            title="Hitam Arang (Charcoal)" aria-label="Hitam Arang"></button>
+        </div>
+      </div>
+
+      <!-- Display Brightness Slider (Mac-OS-Desktop) -->
+      <div class="cc-card">
+        <div class="cc-label">
+          <span>Display Brightness</span>
+          <span id="ccBrightnessVal">100%</span>
+        </div>
+        <div class="cc-slider-wrap">
+          <span class="cc-slider-icon">🔅</span>
+          <input type="range" class="cc-range" id="ccBrightnessRange" min="40" max="100" value="100"
+            aria-label="Screen Brightness" />
+          <span class="cc-slider-icon">🔆</span>
+        </div>
+      </div>
+
+      <!-- Desktop Wallpaper Presets (from Mac-OS-Desktop repo) -->
+      <div class="cc-card">
+        <div class="cc-label">
+          <span>Desktop Wallpaper</span>
+        </div>
+        <div class="cc-wallpapers">
+          <div class="cc-wall-thumb" data-wall-src="yunani.jpg"
+            style="background-image:url('yunani.jpg');" title="Yunani"></div>
+          <div class="cc-wall-thumb" data-wall-src="Clove Valorant butterfly (1) (1).jpg"
+            style="background-image:url('Clove%20Valorant%20butterfly%20(1)%20(1).jpg');" title="Valorant Clove"></div>
+          <div class="cc-wall-thumb" data-wall-src="background/monterey.jpg"
+            style="background-image:url('background/monterey.jpg');" title="macOS Monterey"></div>
+          <div class="cc-wall-thumb" data-wall-src="background/iridescence.jpg"
+            style="background-image:url('background/iridescence.jpg');" title="Iridescence Flow"></div>
+          <div class="cc-wall-thumb" data-wall-src="background/mac os big sur.jpg"
+            style="background-image:url('background/mac%20os%20big%20sur.jpg');" title="macOS Big Sur"></div>
+          <div class="cc-wall-thumb" data-wall-src="background 1.png"
+            style="background-image:url('background%201.png');" title="Dark Minimalist"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Screen Brightness Dimmer Overlay -->
+    <div class="desktop-brightness-overlay" id="brightnessOverlay"></div>
 
     <!-- ── DESKTOP AREA ── -->
     <main class="desktop-area" id="desktopArea">
@@ -321,7 +423,7 @@
         <!-- Dynamic Island Live Status / Activity Capsule -->
         <div class="di-island-status" id="diIslandStatus" title="System Activity">
           <span class="di-live-indicator"></span>
-          <span class="di-status-text" id="diStatusText">Adhyasta OS</span>
+          <span class="di-status-text" id="diStatusText">Adhyasta Adwaya Al</span>
         </div>
 
         <div class="di-sep dock-sep" aria-hidden="true"></div>
@@ -392,7 +494,8 @@
             <div class="di-popup"><span class="di-popup-dot" style="color:#1ed760"></span>Spotify</div>
             <div class="dock-item-icon di-icon" style="background: linear-gradient(135deg, #1ed760, #1db954);">
               <svg width="22" height="22" viewBox="0 0 24 24" fill="#fff">
-                <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.498 17.306c-.215.353-.675.467-1.028.252-2.825-1.727-6.381-2.118-10.57-1.16-.403.092-.807-.16-.899-.562-.093-.404.16-.807.562-.9 4.588-1.047 8.52-.606 11.684 1.341.353.216.467.676.251 1.029zm1.467-3.262c-.27.44-.848.58-1.288.31-3.235-1.988-8.167-2.564-11.994-1.401-.497.15-1.026-.134-1.176-.63-.15-.497.134-1.026.63-1.176 4.375-1.328 9.808-.687 13.518 1.599.44.27.58.848.31 1.288zm.126-3.41c-3.88-2.304-10.282-2.516-13.992-1.39-.594.18-1.22-.16-1.4-.754-.18-.595.16-1.221.755-1.4 4.263-1.294 11.332-1.044 15.811 1.615.534.316.71 1.009.393 1.542-.317.534-1.01.71-1.567.387z"/>
+                <path
+                  d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.498 17.306c-.215.353-.675.467-1.028.252-2.825-1.727-6.381-2.118-10.57-1.16-.403.092-.807-.16-.899-.562-.093-.404.16-.807.562-.9 4.588-1.047 8.52-.606 11.684 1.341.353.216.467.676.251 1.029zm1.467-3.262c-.27.44-.848.58-1.288.31-3.235-1.988-8.167-2.564-11.994-1.401-.497.15-1.026-.134-1.176-.63-.15-.497.134-1.026.63-1.176 4.375-1.328 9.808-.687 13.518 1.599.44.27.58.848.31 1.288zm.126-3.41c-3.88-2.304-10.282-2.516-13.992-1.39-.594.18-1.22-.16-1.4-.754-.18-.595.16-1.221.755-1.4 4.263-1.294 11.332-1.044 15.811 1.615.534.316.71 1.009.393 1.542-.317.534-1.01.71-1.567.387z" />
               </svg>
             </div>
           </div>

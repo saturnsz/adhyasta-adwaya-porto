@@ -172,27 +172,195 @@ function initClock() {
   setInterval(tick, 1000);
 }
 
-// ── 2. THEME ──────────────────────────────────
+// ── 2. THEME & COLOR PALETTE (Mac-OS-Desktop) ──
 function initTheme() {
-  const btn = document.getElementById('themeToggle');
   const root = document.documentElement;
-  const stored = localStorage.getItem('theme');
-  let dark = stored === 'dark' || (!stored && window.matchMedia('(prefers-color-scheme: dark)').matches);
+  const toggleBtn = document.getElementById('themeToggle');
+  const ccBtn = document.getElementById('menubarControlCenter');
+  const ccPanel = document.getElementById('controlCenterPanel');
+  const themeNameEl = document.getElementById('ccThemeName');
+  const activeAccentNameEl = document.getElementById('ccActiveAccentName');
+  const brightnessRange = document.getElementById('ccBrightnessRange');
+  const brightnessValEl = document.getElementById('ccBrightnessVal');
+  const wallpaperEl = document.querySelector('.desktop-wallpaper');
 
-  function applyTheme() {
-    root.setAttribute('data-theme', dark ? 'dark' : '');
-    if (btn) btn.textContent = dark ? '☀️' : '🌙';
-    localStorage.setItem('theme', dark ? 'dark' : 'light');
+  const THEMES = ['dark', 'crimson-dark', 'obsidian', 'light', 'iridescence', 'terminal'];
+  const THEME_NAMES = {
+    dark: 'Merah Darah & Hitam',
+    'crimson-dark': 'Merah Tua (Deep Crimson)',
+    obsidian: 'Hitam Pekat (Obsidian)',
+    light: 'Light Mode',
+    iridescence: 'Blood Iridescence',
+    terminal: 'Crimson Matrix',
+  };
+  const THEME_ICONS = {
+    dark: '🩸',
+    'crimson-dark': '⚔️',
+    obsidian: '🖤',
+    light: '☀️',
+    iridescence: '🔥',
+    terminal: '💻',
+  };
+  const ACCENT_NAMES = {
+    'blood-red': 'Merah Darah (Blood Red)',
+    'dark-red': 'Merah Tua (Dark Crimson)',
+    black: 'Hitam Obsidian (Onyx)',
+    scarlet: 'Merah Menyala (Scarlet)',
+    ruby: 'Merah Ruby',
+    charcoal: 'Hitam Arang (Charcoal)',
+    blue: 'Merah Darah',
+    red: 'Merah Darah',
+    purple: 'Merah Tua',
+    green: 'Hitam Obsidian',
+    orange: 'Merah Menyala',
+    coral: 'Merah Ruby',
+  };
+
+  // 1. Initial State from localStorage
+  let currentTheme = localStorage.getItem('theme');
+  if (!currentTheme || currentTheme === 'light' || !THEMES.includes(currentTheme)) {
+    currentTheme = 'dark';
+    localStorage.setItem('theme', 'dark');
   }
 
-  applyTheme();
+  let currentAccent = localStorage.getItem('accent');
+  if (!currentAccent || ['blue', 'purple', 'green', 'orange', 'coral', 'red'].includes(currentAccent)) {
+    currentAccent = 'blood-red';
+    localStorage.setItem('accent', 'blood-red');
+  }
+  let currentBrightness = parseInt(localStorage.getItem('brightness') || '100', 10);
+  let currentWallpaper = localStorage.getItem('wallpaper');
+  if (!currentWallpaper || currentWallpaper === 'Clove Valorant butterfly (1) (1).jpg' || currentWallpaper === 'download (44).jpg') {
+    currentWallpaper = 'yunani.jpg';
+    localStorage.setItem('wallpaper', 'yunani.jpg');
+  }
 
-  if (btn) {
-    btn.addEventListener('click', () => {
-      dark = !dark;
-      applyTheme();
+  // 2. State Appliers
+  function applyTheme(theme) {
+    currentTheme = theme;
+    root.setAttribute('data-theme', theme);
+    localStorage.setItem('theme', theme);
+
+    if (toggleBtn) {
+      toggleBtn.textContent = THEME_ICONS[theme] || '🌙';
+      toggleBtn.setAttribute('title', `Theme: ${THEME_NAMES[theme] || theme} (Click to change)`);
+    }
+
+    if (themeNameEl) {
+      themeNameEl.textContent = THEME_NAMES[theme] || theme;
+    }
+
+    // Update active state in Control Center
+    document.querySelectorAll('.cc-theme-btn').forEach(btn => {
+      btn.classList.toggle('active', btn.dataset.themeVal === theme);
     });
   }
+
+  function applyAccent(accent) {
+    currentAccent = accent;
+    root.setAttribute('data-accent', accent);
+    localStorage.setItem('accent', accent);
+
+    if (activeAccentNameEl) {
+      activeAccentNameEl.textContent = ACCENT_NAMES[accent] || accent;
+    }
+
+    // Update active swatch
+    document.querySelectorAll('.cc-palette-dot').forEach(dot => {
+      dot.classList.toggle('active', dot.dataset.accentVal === accent);
+    });
+  }
+
+  function applyBrightness(val) {
+    currentBrightness = Math.max(30, Math.min(100, val));
+    root.style.setProperty('--screen-brightness', (currentBrightness / 100).toString());
+    localStorage.setItem('brightness', currentBrightness.toString());
+
+    if (brightnessRange) brightnessRange.value = currentBrightness;
+    if (brightnessValEl) brightnessValEl.textContent = `${currentBrightness}%`;
+  }
+
+  function applyWallpaper(wallSrc) {
+    currentWallpaper = wallSrc;
+    localStorage.setItem('wallpaper', wallSrc);
+
+    if (wallpaperEl) {
+      wallpaperEl.style.backgroundImage = `url('${encodeURI(wallSrc)}')`;
+    }
+
+    // Update active thumbnail
+    document.querySelectorAll('.cc-wall-thumb').forEach(thumb => {
+      thumb.classList.toggle('active', thumb.dataset.wallSrc === wallSrc);
+    });
+  }
+
+  // 3. Initial execution
+  applyTheme(currentTheme);
+  applyAccent(currentAccent);
+  applyBrightness(currentBrightness);
+  applyWallpaper(currentWallpaper);
+
+  // 4. Listeners: Theme quick toggle button
+  if (toggleBtn) {
+    toggleBtn.addEventListener('click', () => {
+      const idx = THEMES.indexOf(currentTheme);
+      const nextTheme = THEMES[(idx + 1) % THEMES.length];
+      applyTheme(nextTheme);
+    });
+  }
+
+  // 5. Listeners: Control Center toggle & interactions
+  if (ccBtn && ccPanel) {
+    ccBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const isActive = ccPanel.classList.toggle('active');
+      ccPanel.setAttribute('aria-hidden', !isActive);
+    });
+
+    // Close when clicking outside
+    document.addEventListener('click', (e) => {
+      if (ccPanel.classList.contains('active') && !ccPanel.contains(e.target) && !ccBtn.contains(e.target)) {
+        ccPanel.classList.remove('active');
+        ccPanel.setAttribute('aria-hidden', 'true');
+      }
+    });
+
+    // Close on Escape
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && ccPanel.classList.contains('active')) {
+        ccPanel.classList.remove('active');
+        ccPanel.setAttribute('aria-hidden', 'true');
+      }
+    });
+  }
+
+  // Control Center Theme buttons
+  document.querySelectorAll('.cc-theme-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      applyTheme(btn.dataset.themeVal);
+    });
+  });
+
+  // Control Center Accent swatches
+  document.querySelectorAll('.cc-palette-dot').forEach(dot => {
+    dot.addEventListener('click', () => {
+      applyAccent(dot.dataset.accentVal);
+    });
+  });
+
+  // Control Center Brightness slider
+  if (brightnessRange) {
+    brightnessRange.addEventListener('input', (e) => {
+      applyBrightness(e.target.value);
+    });
+  }
+
+  // Control Center Wallpaper thumbnails
+  document.querySelectorAll('.cc-wall-thumb').forEach(thumb => {
+    thumb.addEventListener('click', () => {
+      applyWallpaper(thumb.dataset.wallSrc);
+    });
+  });
 }
 
 // ── 3. WINDOWS ────────────────────────────────
@@ -328,14 +496,44 @@ function initWindows() {
 
 function handleWindowResize() {
   const isMobile = window.innerWidth <= 768;
-  document.querySelectorAll('.window').forEach(win => {
-    const isWinOpen = win.style.display !== 'none' && (win.style.display === 'flex' || win.id === 'win-hero');
-    if (isWinOpen && isMobile) {
-      win.classList.add('open-mobile');
-    } else if (!isMobile) {
-      win.classList.remove('open-mobile');
+  const windows = document.querySelectorAll('.window');
+
+  if (isMobile) {
+    // On mobile: keep exactly ONE active window open at a time
+    const openWins = [...windows].filter(w => w.classList.contains('open-mobile') || (w.style.display !== 'none' && w.style.display !== ''));
+    if (openWins.length > 0) {
+      const topWin = openWins.sort((a, b) => (parseInt(b.style.zIndex) || 0) - (parseInt(a.style.zIndex) || 0))[0];
+      windows.forEach(w => {
+        const dockItem = document.querySelector(`.dock-item[data-window="${w.id}"]`);
+        if (w === topWin) {
+          w.style.display = 'flex';
+          w.classList.add('open-mobile');
+          if (dockItem) dockItem.classList.add('open', 'active');
+        } else {
+          w.style.display = 'none';
+          w.classList.remove('open-mobile', 'focused');
+          if (dockItem) dockItem.classList.remove('open', 'active');
+        }
+      });
+    } else {
+      const hero = document.getElementById('win-hero');
+      if (hero) {
+        hero.style.display = 'flex';
+        hero.classList.add('open-mobile');
+        const d = document.querySelector('.dock-item[data-window="win-hero"]');
+        if (d) d.classList.add('open', 'active');
+      }
     }
-  });
+  } else {
+    windows.forEach(win => {
+      win.classList.remove('open-mobile');
+      // If window was open, ensure it displays flex
+      if (win.style.display !== 'none') {
+        win.style.display = 'flex';
+      }
+    });
+  }
+  updateDiStatus();
 }
 
 // ── 4. DOCK ───────────────────────────────────
